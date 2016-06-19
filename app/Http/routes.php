@@ -1,41 +1,4 @@
 <?php
-use JonnyW\PhantomJs\Client;
-
-Route::get('/webshot/', function()
-{
-  $url = Input::get('url');
-
-  $client = Client::getInstance();
-  // $client->setBinDir('../bin');
-  $request  = $client->getMessageFactory()->createCaptureRequest($url);
-  $response = $client->getMessageFactory()->createResponse();
-
-  // $file = '/var/www/html/digitalocean/laravel-fedora/serv.westlinks.net/public_html/bin/file.jpg';
-  // $file = '/var/www/html/digitalocean/laravel-fedora/serv.westlinks.net/public_html/public/images/screenshots/file.jpg';
-  $file = '../public/images/screenshots/file.jpg';
-  // $file = '/tmp/file.jpg';
-  // $file = '../bin/file.jpg';
-
-
-  // $top    = 10;
-  //   $left   = 10;
-  //   $width  = 200;
-  //   $height = 400;
-  //
-  //   $request->setCaptureDimensions($width, $height, $top, $left);
-
-  $request->setOutputFile($file);
-
-  $client->send($request, $response);
-
-  // rename('/var/www/html/digitalocean/laravel-fedora/serv.westlinks.net/public_html/bin/file.jpg', 'images/screenshots/file.jpg');
-
-  echo '<img src="/images/screenshots/file.jpg">';
-});
-
-
-
-// Route::group(['middleware' => ['web']], function () {
 
     Route::auth();
 
@@ -151,5 +114,3 @@ Route::get('/webshot/', function()
     });
     Route::get('websites/name/{name}', 'WebsiteController@name');
     Route::get('websites/blog/{websiteid}/{year}/{month}/{day}', 'WebsiteController@blog');
-
-// });
