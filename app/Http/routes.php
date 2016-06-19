@@ -9,7 +9,6 @@
     Route::group(['prefix' => 'home'], function() {
       Route::resource('/', 'HomeController');
       Route::resource('/base', 'HomeController@base');
-      // Route::resource('/{name}', 'HomeController@name');
     });
 
     Route::group(['prefix' => 'accounts'], function() {
@@ -57,8 +56,6 @@
       Route::resource('os_version/{id}/destroy', 'Os_versionController@destroy');
     });
 
-    // Route::get('/providers/provider/{crmid}', 'ProviderController@showcrm');
-
     Route::group(['prefix' => 'providers'], function() {
       Route::resource('provider_info', 'Provider_InfoController');
       Route::resource('provider', 'ProviderController');
@@ -95,8 +92,6 @@
       Route::resource('/user', 'UserController');
       Route::resource('/', 'UserController');
       Route::patch('user/{user}/update', 'UserController@update');
-      // Route::resource('/profile', 'UserController@profile');
-      // Route::post('/profile', 'UserController@update_avatar');
       Route::resource('user/{id}/destroy', 'UserController@destroy');
     });
 
