@@ -1,3 +1,7 @@
+# Asset Management Project
+
+This SysOp tool is an attempt to gather frequently needed information into a central dashboard, including servers (hosts), websites, domain names, registrars, applications, providers, data centers and user information. The intention is to make this a one-stop shop for complete management of the company assets.
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
