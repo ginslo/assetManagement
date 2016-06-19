@@ -3,7 +3,11 @@
 This SysOp tool, built in Laravel 5.2, is an attempt to gather frequently needed information into a central dashboard, including servers (hosts), websites, domain names, registrars, applications, providers, data centers and user information. The intention is to make this a one-stop shop for complete management of the company assets.
 
 ##Requirements for use
-Create database (e.g. mysql/mariadb)
+Clone the repo
+
+Run composer update
+
+Create a database
 
 Add database credentials to .env
 
