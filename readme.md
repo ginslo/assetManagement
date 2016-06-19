@@ -4,8 +4,11 @@ This SysOp tool, built in Laravel 5.2, is an attempt to gather frequently needed
 
 ##Requirements for use
 Create database (e.g. mysql/mariadb)
+
 Add database credentials to .env
+
 Add constants found in .env.add-these-to-your-dot-env to your .env. These are used throughout the site. You should change the entries to suit your needs.
+
 At this time (June 19, 2016), the migration files are not up to date so you should not use them to create your database. Instead, use the file assetManagement-bu.sql.gz found in the root directory. Just gunzip the file and do mysql -u dbusername -p dbname < assetManagement-bu.sql to create the empty tables. Migrations will be updated asap.
 
 # Laravel PHP Framework
