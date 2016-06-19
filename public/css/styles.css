@@ -1,0 +1,60 @@
+body {
+	background-color:#fff;
+	font-family: arial, trebuchet;
+}
+.container {
+	line-height: 14pt;
+}
+.container p {
+  font-size:16px;
+}
+.leftcol {
+	margin-left:10px;
+	font-weight: bold;
+	line-height: 20px;
+}
+#rightcol {
+	float:right;
+	width: 55%;
+}
+.title {
+	font-size:14px;
+	font-weight:bold;
+	line-height:26.5pt;
+}
+.title1 {
+	font-size:14px;
+	font-weight:bold;
+	line-height:10.5pt;
+}
+p, .normal {
+	font-size:12px;
+	font-weight:normal;
+	line-height:8.5pt;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 180px;
+    text-align: right;
+    margin-top: 7px;
+}
+input {
+  display: inline-block;
+  float: left;
+  margin-top: 3px;
+  font-size:12px;
+}
+
+.propbox {
+	width:175px;
+	font-size:16px;
+	font-weight: normal;
+}
+
+.servtable {
+	border:1px solid #ddd;
+	padding:5px;
+	font-size:13px;
+}
