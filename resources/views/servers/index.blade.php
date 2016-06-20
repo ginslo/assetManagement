@@ -37,8 +37,8 @@
 					<td class="servtable"><a href="/oss/os/{{ $server->os->id }}">{{ $server->os->name }} {{ $server->os_version->name }}</a></td>
 					<td class="servtable"><a href="/users/user/{{ $server->user_id }}">{{ $server->user->first_name }} {{ $server->user->last_name }}</a></td>
 					<td class="servtable"><a href="/accounts/account/{{ $server->user->account_id }}">{{ $server->user->account->name }}</a></td>
-					<td class="servtable"> {{ $server->provider->name }}</td>
-					<td class="servtable"> {{ $server->data_center->name }}</td>
+					<td class="servtable"><a href="/providers/provider/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
+					<td class="servtable"><a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
 					<td class="servtable" align="right"> ${{ number_format( $server->price , 2, '.', '') }}</td>
 					<td class="servtable"> {{ $serverstate = $server->state == 1 ? "Running" : "Stopped" }}</td>
 					<td class="servtable"><a target="_blank" href="{{ env("MONITOR_URL") }}{{ $server->hostname }}">Nagios</a></td>

@@ -31,8 +31,8 @@
 				<td class="servtable"><a href="/domain_names/domain_name/{{ $domain_name->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></td>
 				<td class="servtable"><a href="/domain_names/domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
 				<td class="servtable"><a href="/registrars/registrar/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
-				<td class="servtable">{{ date('m-j-Y', strtotime($domain_name->creation_date)) }}</td>
-				<td class="servtable">{{ date('m-j-Y', strtotime($domain_name->expiration_date)) }}</td>
+				<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->creation_date)) }}</td>
+				<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</td>
 				<td class="servtable" align="right">${{ number_format( $domain_name->cost , 2, '.', '') }}</td>
 				<td class="servtable" align="right">${{ number_format( $domain_name->price , 2, '.', '') }}</td>
 				<td class="servtable"><a href="/users/user/{{ $domain_name->user->id }}">{{ $domain_name->user->first_name }} {{ $domain_name->user->last_name }}</a></td>

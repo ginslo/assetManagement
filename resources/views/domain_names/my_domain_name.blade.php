@@ -17,10 +17,10 @@
 					<th class="servtable">Domain Name: </th><td class="servtable">{{ $domain_name->name }}</span></td>
 				</tr>
 				<tr>
-	        <th class="servtable">Creation Date: </th><td class="servtable">{{ $domain_name->creation_date }}</span></td>
+	        <th class="servtable">Creation Date: </th><td class="servtable">{{ date('m-d-Y', strtotime($domain_name->creation_date)) }}</span></td>
 				</tr>
 				<tr>
-	        <th class="servtable">Expiration Date: </th><td class="servtable">{{ $domain_name->expiration_date }}</span></td>
+	        <th class="servtable">Expiration Date: </th><td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</span></td>
 				</tr>
 				{{-- <tr>
 	        <th class="servtable">Account: </th><td class="servtable"><a href="/accounts/my_account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></span></td>

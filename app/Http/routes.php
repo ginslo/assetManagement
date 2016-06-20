@@ -28,6 +28,7 @@
     });
 
     Route::group(['prefix' => 'data_centers'], function() {
+      Route::resource('data_center_info', 'Data_center_InfoController');
       Route::resource('data_center', 'Data_centerController');
       Route::resource('/', 'Data_centerController');
       Route::patch('data_center/{data_center}/update', 'Data_centerController@update');

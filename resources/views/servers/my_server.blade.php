@@ -28,10 +28,10 @@
 	        <th class="servtable">Purpose:</th><td class="servtable">{{ $server->purpose->name }}</span></td>
 				</tr>
 				<tr>
-					<th class="servtable">Provider:</th><td class="servtable">{{ $server->provider->name }}</span></td>
+					<th class="servtable">Provider:</th><td class="servtable"><a href="/providers/provider_info/{{ $server->provider->id }}">{{ $server->provider->name }}</a></span></td>
 				</tr>
 				<tr>
-	        <th class="servtable">Data Center:</th><td class="servtable">{{ $server->data_center->name }}</span></td>
+	        <th class="servtable">Data Center:</th><td class="servtable"><a href="/data_centers/data_center_info/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></span></td>
 				</tr>
 				<tr>
 					<th class="servtable">Instance ID:</th><td class="servtable">{{ $server->instance_id }}</td>

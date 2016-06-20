@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Application;
-
+use App\Data_center;
+use App\Provider;
 use App\Http\Requests;
 
-class Application_InfoController extends Controller
+class Data_center_InfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -49,11 +49,11 @@ class Application_InfoController extends Controller
      */
     public function show($id)
     {
-      $application = Application::findOrFail($id);
-      $websites = $application->website;
-
-      $title = 'Application: '.$application->name;
-      return view('applications/application_info', compact('application','title','websites'));
+      $data_center = Data_center::findOrFail($id);
+      $provider = Provider::where('id', '=', $data_center->provider_id);
+      $servers = $data_center->server;
+      $title = 'Data Center: '.$data_center->name;
+      return view('data_centers.data_center_info', compact('title', 'data_center', 'provider','servers'));
     }
 
     /**

@@ -37,7 +37,6 @@
 				<th class="servtable">Server Name</th>
 				<th class="servtable">Hostname</th>
 				<th class="servtable">Data Center</th>
-				<th class="servtable">user</th>
 			</tr>
 			@foreach($servers as $server)
         @if($server->user_id == Auth::user()->id)
@@ -45,7 +44,6 @@
   					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->name }}</a></td>
   					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->hostname }}</a></td>
   					<td class="servtable"><a href="/data_centers/data_center_info/{{ $server->data_center->id }}">{{ $server->data_center->name }}</td>
-  					<td class="servtable">{{ $server->user->first_name }} {{ $server->user->last_name }}</td>
   				</tr>
         @endif
 			@endforeach
