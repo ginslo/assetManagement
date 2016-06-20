@@ -21,13 +21,15 @@
 <div class="row">
 	<div class="col-sm-12 col-md-6">
 		<h2>My Domain Names at {{ $registrar->name }}</h2>
-		<ul>
-			@foreach($domain_names as $domain_name)
-        @if($domain_name->user_id == Auth::user()->id)
-				  <li><a href="/domain_names/my_domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a>
-        @endif
-			@endforeach
-		</ul>
+			<table>
+				@foreach($domain_names as $domain_name)
+	        @if($domain_name->user_id == Auth::user()->id)
+						<tr>
+					  	<td class="servtable"><a href="/domain_names/my_domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
+						</tr>
+	        @endif
+				@endforeach
+			</table>
 		</div>
 	</div>
 

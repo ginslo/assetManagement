@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Account;
 use App\Server;
+use App\Domain_name;
 use Auth;
 use Image;
 use App\Http\Requests;
@@ -44,11 +45,12 @@ class UserController extends Controller
     {
       $user = User::findOrFail($id);
       // $servers = Server::where('user_id', '=', $user->id);
+      $domain_names = Domain_name::where('user_id','=',$user->id)->orderBy('name','asc')->paginate(20);
       $title = 'User: '.$user->first_name.' '.$user->last_name;
       $isadmin = $user->is_admin == 1 ? "Admin" : "Not an Admin";
       $servers = $user->server;
       $websites = $user->website;
-      return view('users.user', compact('title', 'user', 'isadmin', 'servers','websites'));
+      return view('users.user', compact('title', 'user', 'isadmin', 'servers','websites','domain_names'));
     }
 
      public function edit($id)
@@ -66,27 +68,6 @@ class UserController extends Controller
 
        return back();
      }
-
-    //  public function profile()
-    //  {
-    //    $title = 'My Profile';
-    //    return view('/profile.index', compact('title'), array('user' => Auth::user()) );
-    //  }
-     //
-    //  public function update_avatar(Request $request)
-    //  {
-    //    if($request->hasFile('avatar')){
-    //      $avatar = $request->file('avatar');
-    //      $filename = time() . '.' . $avatar->getClientOriginalExtension();
-    //      Image::make($avatar)->resize(300,300)->save( public_path('/images/uploads/avatars/' . $filename ) );
-    //      $user = Auth::user();
-    //      $user->avatar = $filename;
-    //      $user->save();
-    //    }
-    //    $title = 'My Profile';
-    //    return view('/profile', compact('title'), array('user' => Auth::user()) );
-     //
-    //  }
 
      public function destroy(Request $request, User $user)
      {

@@ -22,9 +22,27 @@
 				<tr>
 	        <th class="servtable">Expiration Date: </th><td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</span></td>
 				</tr>
-				{{-- <tr>
-	        <th class="servtable">Account: </th><td class="servtable"><a href="/accounts/my_account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></span></td>
-				</tr> --}}
+				{{-- @if($domain_name->registrar->id == 1)
+					<tr>
+		        <th class="servtable">Manage: </th><td class="servtable"><a target="_blank" href="{{ env('ENOMCENTRAL_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
+					</tr>
+				@endif --}}
+
+				@if($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && Auth::user()->id == 2 )
+					<th class="servtable">Manage: </th><td class="servtable"><a target="_blank" href="{{ env('ENOM_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
+				@elseif($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && Auth::user()->id != 2)
+					<th class="servtable">Manage: </th><td class="servtable"><a target="_blank" href="{{ env('ENOMCENTRAL_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
+				@elseif($domain_name->registrar->id == 2)
+					<th class="servtable">Manage: </th><td class="servtable"><a target="_blank" href="{{ env('GOOGLEDOMAIN_URL')}}">Manage</a></span></td>
+				@elseif($domain_name->registrar->id == 3)
+					<th class="servtable">Manage: </th><td class="servtable"><a target="_blank" href="{{ env('GODADDY_URL')}}">Manage</a></span></td>
+				@else
+					<th class="servtable">Manage: </th><td class="servtable"><a target="_blank" href="#">&nbsp;</a></span></td>
+				@endif
+
+
+
+
 				<tr>
 					<th class="servtable">Registrar: </th><td class="servtable"><a href="/registrars/registrar_info/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></span></td>
 				</tr>

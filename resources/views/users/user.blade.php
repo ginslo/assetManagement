@@ -66,4 +66,50 @@
 			<br /><br />
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-8">
+			<h2>Associated Domain Names</h2>
+			<table width="100%">
+				<tr>
+					<th class="servtable">Domain Name</th>
+					<th class="servtable">Registrar</th>
+					<th class="servtable">Manage</th>
+					<th class="servtable">Creation Date</th>
+					<th class="servtable">Expiration Date</th>
+					<th class="servtable">Price/Year</th>
+					<th class="servtable">Account</th>
+				<?php $ttl=0; ?>
+				@foreach ($domain_names as $domain_name)
+				<tr>
+					<td class="servtable"><a href="/domain_names/domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
+					<td class="servtable"><a href="/registrars/registrar/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
+
+					@if($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && $domain_name->user_id == 2 )
+						<td class="servtable"><a target="_blank" href="{{ env('ENOM_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
+					@elseif($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && $domain_name->user_id != 2)
+						<td class="servtable"><a target="_blank" href="{{ env('ENOMCENTRAL_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
+					@elseif($domain_name->registrar->id == 2)
+						<td class="servtable"><a target="_blank" href="{{ env('GOOGLEDOMAIN_URL')}}">Manage</a></span></td>
+					@elseif($domain_name->registrar->id == 3)
+						<td class="servtable"><a target="_blank" href="{{ env('GODADDY_URL')}}">Manage</a></span></td>
+					@else
+						<td class="servtable"><a target="_blank" href="#">&nbsp;</a></span></td>
+					@endif
+
+					<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->creation_date)) }}</td>
+					<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</td>
+					<td class="servtable" align="right"> ${{ number_format( $domain_name->price , 2, '.', '') }}</td>
+					<td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></td>
+				</tr>
+				<?php $ttl=$ttl + $domain_name->price; ?>
+				@endforeach
+				<tr>
+					<td class="servtable" align="right" colspan="4">Total:</td>
+					<td class="servtable" align="right">${{ number_format($ttl,2) }}</td>
+					<td class="servtable" align="left"> &nbsp;</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
 @endsection

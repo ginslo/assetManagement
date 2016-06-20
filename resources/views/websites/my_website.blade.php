@@ -13,6 +13,9 @@
 				<th class="servtable">Base Domain Name:</th><td class="servtable"><a href="/domain_names/my_domain_name/{{ $website->domain_name->id }}">{{ $website->domain_name->name }}</a></td>
 			</tr>
 			<tr>
+				<th class="servtable">Domain Name Registrar:</th><td class="servtable"><a href="/registrars/registrar_info/{{ $website->domain_name->registrar->id }}">{{ $website->domain_name->registrar->name }}</a></td>
+			</tr>
+			<tr>
 		    <th class="servtable">Website URL:</th><td class="servtable"><a target="_blank" href="http://{{ $website->subdomain }}.{{ $website->domain_name->name }}">{{ $website->subdomain }}.{{ $website->domain_name->name }}</a></td>
 			</tr>
 			<tr>

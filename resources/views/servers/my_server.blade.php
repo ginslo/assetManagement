@@ -57,6 +57,9 @@
 				<tr>
 					<th class="servtable">State:</th><td class="servtable">{{ $serverstate }}	</td>
 				</tr>
+				<tr>
+					<th class="servtable">Monitor:</th><td class="servtable"><a target="_blank" href="{{ env("MONITOR_URL") }}{{ $server->hostname }}">Nagios</a>	</td>
+				</tr>
 			</table>
     </div>
   </div>

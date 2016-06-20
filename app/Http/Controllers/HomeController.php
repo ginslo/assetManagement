@@ -22,33 +22,17 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
       $title = 'Home';
       $uid = Auth::user()->id;
-      // $uid = 1;
-      $domain_names = Domain_name::where('user_id','=',$uid)->paginate(20);
+      $domain_names = Domain_name::where('user_id','=',$uid)->orderBy('name','asc')->paginate(20);
       $registrar = Registrar::where('id', '=', 'registrar_id');
       $user = User::where('id', '=', 'user_id');
+      $servers = Server::where('user_id','=',$uid)->orderBy('name','asc')->paginate(20);
+      $websites = Website::where('user_id','=',$uid)->orderBy('name','asc')->paginate(20);
 
-      $servers = Server::where('user_id','=',$uid)->paginate(20);
-      $websites = Website::where('user_id','=',$uid)->paginate(20);
-
-        return view('home', compact('title','domain_names','registrar','user','servers','websites'));
+      return view('home', compact('title','domain_names','registrar','user','servers','websites'));
     }
 
-    public function base()
-    {
-      return 'hello';
-    }
-
-    public function name($name)
-    {
-      return $name;
-    }
 }

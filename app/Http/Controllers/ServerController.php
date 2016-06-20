@@ -27,7 +27,7 @@ class ServerController extends Controller
     public function index()
     {
           // $servers = Server::all();
-          $servers = Server::orderBy('name','asc')->paginate(10);
+          $servers = Server::orderBy('hostname','asc')->paginate(10);
           $title = 'Servers';
           return view('servers.index', compact('title', 'servers', 'user'));
     }
@@ -54,22 +54,21 @@ class ServerController extends Controller
 
     public function show($id)
     {
-          $server = Server::findOrFail($id);
-          $user = User::where('id', '=', $server->user_id);
-          $account = Account::where('id', '=', $server->user->account_id);
-          $provider = Provider::where('id', '=', $server->provider_id);
-          $data_center = Data_center::where('id', '=', $server->data_center_id);
-          $purpose = Purpose::where('id', '=', $server->purpose_id);
-          $os = Os::where('id', '=', $server->os_id);
-          $os_version = Os_version::where('id', '=', $server->os_version_id);
-          $websites = Server::find($id)->website;
+      $server = Server::findOrFail($id);
+      $user = User::where('id', '=', $server->user_id);
+      $account = Account::where('id', '=', $server->user->account_id);
+      $provider = Provider::where('id', '=', $server->provider_id);
+      $data_center = Data_center::where('id', '=', $server->data_center_id);
+      $purpose = Purpose::where('id', '=', $server->purpose_id);
+      $os = Os::where('id', '=', $server->os_id);
+      $os_version = Os_version::where('id', '=', $server->os_version_id);
+      $websites = Server::find($id)->website;
 
-          $serverstate = $server->state == 1 ? "Running" : "Stopped";
-          $title = 'Server: '. $server->name;
+      $serverstate = $server->state == 1 ? "Running" : "Stopped";
+      $title = 'Server: '. $server->name;
 
-          return view('servers.server', compact('title', 'server', 'user', 'account', 'data_center',
-          'purpose', 'os', 'os_version', 'serverstate', 'websites'));
-          // return view('servers.server');
+      return view('servers.server', compact('title', 'server', 'user', 'account', 'data_center',
+      'purpose', 'os', 'os_version', 'serverstate', 'websites'));
     }
 
     public function edit($id)
