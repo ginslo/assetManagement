@@ -32,7 +32,7 @@ class UserController extends Controller
         $accounts = Account::lists('name','id');
         $title = 'New User';
         $backtitle = 'Users';
-        return view('users.new', compact('accounts', 'title', 'backtitle'));
+        return view('users.create', compact('accounts', 'title', 'backtitle'));
     }
 
      public function store(Request $request, User $user)

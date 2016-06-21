@@ -25,7 +25,7 @@ class ApplicationController extends Controller
     {
         $title = 'New Application';
         $backtitle = 'Applications';
-        return view('applications.new', compact('title','backtitle'));
+        return view('applications.create', compact('title','backtitle'));
     }
 
     public function store(Request $request, Application $application)

@@ -29,7 +29,7 @@ class ProviderController extends Controller
     {
         $title = 'New Provider';
         $backtitle = 'Providers';
-        return view('providers.new', compact('title','backtitle'));
+        return view('providers.create', compact('title','backtitle'));
     }
 
      public function store(Request $request, Provider $provider)

@@ -42,7 +42,7 @@ class ServerController extends Controller
       $users = User::all()->lists('full_name', 'id');
         $title = 'New Server';
         $backtitle = 'Servers';
-        return view('servers.new', compact('providers','data_centers',
+        return view('servers.create', compact('providers','data_centers',
         'purposes','oss','os_versions','users','title','backtitle'));
     }
 

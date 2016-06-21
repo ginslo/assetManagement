@@ -26,7 +26,7 @@ class PurposeController extends Controller
   {
     $title = 'New Purpose';
     $backtitle = 'Purposes';
-    return view('purposes.new', compact('title','backtitle'));
+    return view('purposes.create', compact('title','backtitle'));
   }
 
   public function store(Request $request, Purpose $purpose)

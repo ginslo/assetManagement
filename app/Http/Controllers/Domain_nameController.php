@@ -35,7 +35,7 @@ class Domain_nameController extends Controller
       $users = User::all()->lists('full_name', 'id');
       $title = 'New Domain Name';
       $backtitle = 'Domain Names';
-      return view('domain_names.new', compact('registrars','users','title','backtitle'));
+      return view('domain_names.create', compact('registrars','users','title','backtitle'));
     }
 
      public function store(Request $request, Domain_name $domain_name)

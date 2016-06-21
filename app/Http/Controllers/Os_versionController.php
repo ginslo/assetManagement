@@ -26,7 +26,7 @@ class Os_versionController extends Controller
   {
     $title = 'New Operating System Version';
     $backtitle = 'Operating System Versions';
-    return view('os_versions.new', compact('title','backtitle'));
+    return view('os_versions.create', compact('title','backtitle'));
   }
 
   public function store(Request $request, Os_version $os_version)

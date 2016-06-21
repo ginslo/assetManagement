@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function index()
     {
-      $title = 'Home';
+      $title = 'My Account';
       $uid = Auth::user()->id;
       $domain_names = Domain_name::where('user_id','=',$uid)->orderBy('name','asc')->paginate(20);
       $registrar = Registrar::where('id', '=', 'registrar_id');

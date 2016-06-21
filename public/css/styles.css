@@ -1,10 +1,37 @@
 body {
 	background-color:#fff;
 	font-family: arial, trebuchet;
+	height: 100%;
 }
+
 .container {
 	line-height: 14pt;
 }
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -142px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+/*.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}*/
+
+.site-footer, .page-wrap:after {
+  height: 142px;
+}
+
+.site-footer {
+  background: #333;
+}
+
 .container p {
   font-size:16px;
 }

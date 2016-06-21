@@ -27,7 +27,7 @@ class Data_centerController extends Controller
       $providers = Provider::lists('name', 'id');
       $title = 'New Data Center';
       $backtitle = 'Data Centers';
-      return view('data_centers.new', compact('providers','title','backtitle'));
+      return view('data_centers.create', compact('providers','title','backtitle'));
     }
 
      public function store(Request $request, Data_center $data_center)

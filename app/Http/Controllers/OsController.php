@@ -25,7 +25,7 @@ class OsController extends Controller
     {
       $title = 'New Operating System';
       $backtitle = 'Operating Systems';
-      return view('oss.new', compact('title','backtitle'));
+      return view('oss.create', compact('title','backtitle'));
     }
 
     public function store(Request $request, os $os)

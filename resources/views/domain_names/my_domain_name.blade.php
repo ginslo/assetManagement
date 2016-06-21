@@ -52,7 +52,6 @@
 	<div class="row">
 		<div class="col-sm-12 col-md-8">
 			<h2>Websites using {{ $domain_name->name }}</h2>
-			<a href="/websites/create"><span title="Add New Website"><i class="fa fa-plus" aria-hidden="true"></i></span> New Website</a>
 			<table>
 				<tr>
 					<th class="servtable">Website Name</th>

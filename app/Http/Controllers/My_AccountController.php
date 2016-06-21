@@ -17,6 +17,6 @@ class My_AccountController extends Controller
       $users = $account->user;
       $title = 'Account: '.$account->name;
 
-      return view('accounts.my_account',compact('title', 'account', 'users'));
+      return view('accounts.my_account', compact('title', 'account', 'users'));
     }
 }

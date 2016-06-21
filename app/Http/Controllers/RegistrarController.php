@@ -26,7 +26,7 @@ class RegistrarController extends Controller
     {
         $title = 'New Registrar';
         $backtitle = 'Registrars';
-        return view('registrars.new', compact('title','backtitle'));
+        return view('registrars.create', compact('title','backtitle'));
     }
 
      public function store(Request $request, Registrar $registrar)

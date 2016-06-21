@@ -34,13 +34,13 @@ class AccountController extends Controller
     {
         $title = 'New Account';
         $backtitle = 'Accounts';
-        return view('accounts.new', compact('title','backtitle'));
+        return view('accounts.create', compact('title','backtitle'));
     }
 
     public function store(Request $request, Account $account)
    {
       $account->create($request->all());
-      return redirect('/accounts/');
+      return redirect('/accounts');
     }
 
     public function show($id)
