@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-8 col-md-offset-4">
 		<h2>{{ $title }}</h2>
 		<a href="/oss/create"><span title="Add New OS"><i class="fa fa-plus" aria-hidden="true"></i></span> New OS</a>
 		<br />

@@ -9,13 +9,13 @@
 @section('content')
 
 <div class="row">
-	<div class="col-sm-12 col-md-12">
+	<div class="col-sm-12 col-md-offset-0">
 		<h2>{{ $title }}</h2>
 		<a href="/websites/create"><span title="Add New Website"><i class="fa fa-plus" aria-hidden="true"></i></span> New Website</a>
 		<br />
 
 
-		<table>
+		<table width="100%">
 			<tr>
 				<th class="servtable">ID</th>
 				<th class="servtable">E</th>

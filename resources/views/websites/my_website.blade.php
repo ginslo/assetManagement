@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-10 col-md-8 col-md-offset-2">
 		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/home">Home</a>
 		<h2>Website: {{ $website->name }}</h2>
 		<table>

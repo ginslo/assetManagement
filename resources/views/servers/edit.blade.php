@@ -8,15 +8,10 @@
 
 @section('content')
 
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/servers/server/{{ $server->id }}">{{ $backtitle }}</a>
-      <h1>Editing {{ $server->name }}</h1>
-        {{-- <p class="leftcol">Name: <span class="propbox pull-right">{{ $server->name }}</span></p> --}}
-    </div>
-  </div>
 	<div class="row">
-		<div class="col-sm-12 col-md-6">
+		<div class="col-sm-10 col-md-8 col-md-offset-2">
+			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/servers/server/{{ $server->id }}">{{ $backtitle }}</a>
+			<h1>Editing {{ $server->name }}</h1>
 			<form action="/servers/server/{{ $server->id }}/update" method="POST" class="form-horizontal">
 				{{ csrf_field() }}
 				{{ method_field('PATCH') }}
@@ -135,7 +130,7 @@
 				</div>
 				<div class="form-group">
 	      	<div class="col-sm-offset-3 col-sm-6">
-	        	<button type="submit" class="btn btn-default">
+	        	<button type="submit" class="btn btn-success btn-lg btn-block">
 	          	<i class="fa fa-btn fa-plus"></i> Update Website
 	          </button>
 	        </div>

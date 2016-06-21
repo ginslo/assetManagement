@@ -1,4 +1,3 @@
-
 <footer class="site-footer">
   <div class="row" >
     <div class="col-sm-8 col-md-offset-2">

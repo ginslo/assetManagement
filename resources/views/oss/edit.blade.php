@@ -6,7 +6,7 @@
 @section('content')
 	@include('common.errors')
 	<div class="row">
-		<div class="col-sm-12 col-md-6">
+		<div class="col-sm-10 col-md-8 col-md-offset-2">
 			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/oss/os/{{ $os->id }}">{{ $backtitle }}</a>
       <h1>Editing {{ $os->name }}</h1>
       <form action="/oss/os/{{ $os->id }}/update" method="POST" class="form-horizontal">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-6">
-						<button type="submit" class="btn btn-default">
+						<button type="submit" class="btn btn-success btn-lg btn-block">
 							<i class="fa fa-btn fa-plus"></i> Update Operating System
 						</button>
 					</div>

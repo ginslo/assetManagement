@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-sm-12 col-md-12">
+	<div class="col-sm-8 col-md-offset-4">
 		<h2>{{ $title }}</h2>
 		<a href="/providers/create"><span title="Add New provider"><i class="fa fa-plus" aria-hidden="true"></i></span> New Provider</a>
 		<br />

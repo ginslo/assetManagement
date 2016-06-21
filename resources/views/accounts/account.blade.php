@@ -10,7 +10,7 @@
 	@include('common.errors')
 
   <div class="row">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-8 col-md-offset-4">
 			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/accounts/">{{ $backtitle }}</a>
 			<h1>{{ $title }}</h1>
 			<table>
@@ -23,7 +23,7 @@
   </div>
 
 	<div class="row">
-		<div class="col-sm-12 col-md-6">
+		<div class="col-sm-8 col-md-offset-4">
 			<h2>Users associated with {{ $account->name }}</h2>
 			<table>
 				<tr>

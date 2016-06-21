@@ -9,7 +9,7 @@
 @section('content')
 
   <div class="row">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-8 col-md-offset-2">
 			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/domain_names/">All Domain Names</a>
 			<h1><p style="float:right;"><a href="/domain_names/domain_name/{{ $domain_name->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></p>
 			{{ $title }}</h1>
@@ -42,7 +42,7 @@
 		</div>
   </div>
 	<div class="row">
-		<div class="col-sm-12 col-md-8">
+		<div class="col-sm-8 col-md-offset-2">
 			<h2>Websites using {{ $domain_name->name }}</h2>
 			<a href="/websites/create"><span title="Add New Website"><i class="fa fa-plus" aria-hidden="true"></i></span> New Website</a>
 			<table>

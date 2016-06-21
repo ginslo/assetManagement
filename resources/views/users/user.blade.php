@@ -9,7 +9,7 @@
 @section('content')
 
   <div class="row">
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-10 col-md-8 col-md-offset-2">
 			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/users/">All Users</a>
 			<h1><p style="float:right;"><a href="/users/user/{{ $user->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
 			<a target="_blank" href="{{ env('CRM_USER_URL')}}{{ $user->crm_id }}"><span title="CRM View"><i class="fa fa-eye" aria-hidden="true"></i></span></a></span></p>
@@ -21,7 +21,7 @@
     </div>
   </div>
 	<div class="row">
-		<div class="col-sm-12 col-md-8">
+		<div class="col-sm-10 col-md-8 col-md-offset-2">
 			<h2>Associated Servers</h2>
 			<table>
 				<tr>
@@ -45,7 +45,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12 col-md-8">
+		<div class="col-sm-10 col-md-8 col-md-offset-2">
 			<h2>Associated Websites</h2>
 			<table>
 				<tr>
@@ -67,7 +67,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12 col-md-8">
+		<div class="col-sm-10 col-md-8 col-md-offset-2">
 			<h2>Associated Domain Names</h2>
 			<table width="100%">
 				<tr>
@@ -112,4 +112,5 @@
 
 		</div>
 	</div>
+	<br /><br />
 @endsection

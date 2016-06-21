@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-9 col-md-offset-3">
 		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/applications/">All Applications</a>
 		<h1><p style="float:right;"><a href="/applications/application/{{ $application->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></p>
 		{{ $title }}</h1>
@@ -16,7 +16,7 @@
   </div>
 </div>
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-9 col-md-offset-3">
 		<h2>Websites running {{ $application->name }}</h2>
 		<table>
 			<tr>

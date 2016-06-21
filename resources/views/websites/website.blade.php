@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-10 col-md-8 col-md-offset-2">
 		{{-- <p style="float:right;"><img src="/images/screenshots/file.jpg" alt="" width="300"/></p> --}}
 		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/websites/">All Websites</a>
 		<h1><p style="float:right;"><a href="/websites/website/{{ $website->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></p>

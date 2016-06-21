@@ -7,7 +7,9 @@
 	@include('common.errors')
 
 	<div class="row">
-		<div class="col-sm-12 col-md-6">
+		<div class="col-sm-10 col-md-8 col-md-offset-2">
+			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/users/">{{ $backtitle }}</a>
+			<h1>Create Server</h1>
 			<form action="/servers/" method="POST" class="form-horizontal">
 				{{ csrf_field() }}
 				<div class="form-group">
@@ -122,7 +124,7 @@
 				</div>
 				<div class="form-group">
 	      	<div class="col-sm-offset-3 col-sm-6">
-	        	<button type="submit" class="btn btn-primary">
+	        	<button type="submit" class="btn btn-success btn-lg btn-block">
 	          	<i class="fa fa-btn fa-plus"></i> Update Website
 	          </button>
 	        </div>

@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-9 col-md-5 col-md-offset-3">
 		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/providers/">All Providers</a>
 		<h1><p style="float:right;"><a href="/providers/provider/{{ $provider->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
 		<a target="_blank" href="{{ env('CRM_ACCT_URL')}}{{ $provider->crm_id }}"><span title="CRM View"><i class="fa fa-eye" aria-hidden="true"></i></span></a></span></p>
@@ -24,7 +24,7 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-9 col-md-6 col-md-offset-3">
 		<h2>Data Centers at {{ $provider->name }}</h2>
 		<ul>
 			@foreach($data_centers as $data_center)
@@ -35,7 +35,7 @@
 	</div>
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-9 col-md-6 col-md-offset-3">
 		<h2>Servers at {{ $provider->name }}</h2>
 		<table>
 			<tr>
