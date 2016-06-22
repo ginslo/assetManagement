@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-9 col-md-5 col-md-offset-3">
 		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/home">Home</a>
 		<h1>{{ $title }}</h1>
 		<table>
@@ -30,7 +30,7 @@
 	</div> --}}
 
 <div class="row">
-	<div class="col-sm-12 col-md-8">
+	<div class="col-sm-9 col-md-5 col-md-offset-3">
 		<h2>My Servers at {{ $provider->name }}</h2>
 		<table>
 			<tr>

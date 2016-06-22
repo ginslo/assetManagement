@@ -38,9 +38,10 @@ class Os_versionController extends Controller
   public function show($id)
   {
     $os_version = Os_version::findOrFail($id);
+    $servers = $os_version->os->server;
     $title = 'Operating System Details - '.$os_version->name;
 
-    return view('os_versions.os_version', compact('title', 'os_version'));
+    return view('os_versions.os_version', compact('title', 'os_version','servers'));
   }
 
   public function edit($id)
