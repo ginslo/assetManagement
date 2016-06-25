@@ -149,6 +149,60 @@
                       @endif
                   </div>
                   <div class="panel-body">
+                    @if(count($providers) == 0)
+                      <h3> No Providers Matched </h3>
+                    @else
+                      <h3>Providers</h3>
+                      <table>
+                  			<tr>
+                  				<th class="servtable">Name</th>
+                  				{{-- <th class="servtable">Email</th> --}}
+                  			@foreach ($providers as $provider)
+                  			<tr>
+                  				<td class="servtable"><a href="/providers/provider/{{ $provider->id }}">{{ $provider->name }}</a></td>
+                  				{{-- <td class="servtable"><a href="/users/user/{{ $user->id }}">{{ $user->email }}</a></td> --}}
+                  			</tr>
+                  			@endforeach
+                      </table>
+                      @endif
+                  </div>
+                  <div class="panel-body">
+                    @if(count($applications) == 0)
+                      <h3> No Applications Matched </h3>
+                    @else
+                      <h3>Applications</h3>
+                      <table>
+                        <tr>
+                          <th class="servtable">Name</th>
+                          {{-- <th class="servtable">Email</th> --}}
+                        @foreach ($applications as $application)
+                        <tr>
+                          <td class="servtable"><a href="/applications/application/{{ $application->id }}">{{ $application->name }}</a></td>
+                          {{-- <td class="servtable"><a href="/users/user/{{ $user->id }}">{{ $user->email }}</a></td> --}}
+                        </tr>
+                        @endforeach
+                      </table>
+                      @endif
+                  </div>
+                  <div class="panel-body">
+                    @if(count($distributions) == 0)
+                      <h3> No Distributions Matched </h3>
+                    @else
+                      <h3>Distributions</h3>
+                      <table>
+                  			<tr>
+                  				<th class="servtable">Name</th>
+                  				{{-- <th class="servtable">Email</th> --}}
+                  			@foreach ($distributions as $distribution)
+                  			<tr>
+                  				<td class="servtable"><a href="/distributions/distribution/{{ $distribution->id }}">{{ $distribution->name }}</a></td>
+                  				{{-- <td class="servtable"><a href="/users/user/{{ $user->id }}">{{ $user->email }}</a></td> --}}
+                  			</tr>
+                  			@endforeach
+                      </table>
+                      @endif
+                  </div>
+                  <div class="panel-body">
                     @if(count($registrars) == 0)
                       <h3> No Registrars Matched </h3>
                     @else
