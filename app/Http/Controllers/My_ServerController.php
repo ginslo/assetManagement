@@ -10,8 +10,8 @@ use App\Account;
 use App\Provider;
 use App\Data_center;
 use App\Purpose;
-use App\Os;
-use App\Os_version;
+use App\Distribution;
+use App\Distribution_version;
 use App\Website;
 use App\Application;
 
@@ -19,6 +19,11 @@ use App\Http\Requests;
 
 class My_ServerController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
+    
     public function show($id)
     {
       $server = Server::findOrFail($id);
@@ -27,8 +32,8 @@ class My_ServerController extends Controller
       $provider = Provider::where('id', '=', $server->provider_id);
       $data_center = Data_center::where('id', '=', $server->data_center_id);
       $purpose = Purpose::where('id', '=', $server->purpose_id);
-      $os = Os::where('id', '=', $server->os_id);
-      $os_version = Os_version::where('id', '=', $server->os_version_id);
+      $os = Distribution::where('id', '=', $server->os_id);
+      $os_version = Distribution_version::where('id', '=', $server->os_version_id);
       $websites = Server::find($id)->website;
 
       $serverstate = $server->state == 1 ? "Running" : "Stopped";

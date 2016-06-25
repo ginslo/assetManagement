@@ -17,6 +17,7 @@ class Domain_nameController extends Controller
 
     public function __construct()
     {
+      $this->middleware('auth');
       $this->middleware('isAdmin');
     }
 
@@ -68,8 +69,8 @@ class Domain_nameController extends Controller
      public function update(Request $request, Domain_name $domain_name)
      {
        $domain_name->update($request->all());
-
-       return back();
+       $id=$domain_name->id;
+       return redirect()->route('domain_names.domain_name.show', $id);
      }
 
      public function destroy(Request $request, Domain_name $registrar)

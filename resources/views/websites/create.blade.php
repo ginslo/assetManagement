@@ -7,7 +7,7 @@
 	@include('common.errors')
 	<div class="row">
 		<div class="col-sm-10 col-md-8 col-md-offset-2">
-			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/users/">{{ $backtitle }}</a>
+			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/websites/">{{ $backtitle }}</a>
 			<h1>New Website</h1>
 			<form action="/websites/" method="POST" class="form-horizontal">
 				{{ csrf_field() }}

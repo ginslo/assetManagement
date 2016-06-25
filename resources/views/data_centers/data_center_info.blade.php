@@ -10,7 +10,7 @@
 
   <div class="row">
     <div class="col-sm-9 col-md-offset-3">
-			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/data_centers/">All Data Centers</a>
+			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/home/">Home</a>
 			<h1>{{ $data_center->provider->name }} {{ $title }}</h1>
 			<table>
 				<tr>

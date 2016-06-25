@@ -10,8 +10,8 @@ use App\Server;
 use App\Provider;
 use App\Data_center;
 use App\Purpose;
-use App\Os;
-use App\Os_version;
+use App\Distribution;
+use App\Distribution_version;
 use App\Website;
 use App\Application;
 use DB;
@@ -21,6 +21,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+  public function __construct()
+  {
+        $this->middleware('auth');
+  }
 
     public function index()
     {

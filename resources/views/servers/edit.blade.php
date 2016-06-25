@@ -7,7 +7,7 @@
 @section('sidebar')
 
 @section('content')
-
+@include('common.errors')
 	<div class="row">
 		<div class="col-sm-10 col-md-8 col-md-offset-2">
 			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/servers/server/{{ $server->id }}">{{ $backtitle }}</a>
@@ -75,15 +75,15 @@
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="os" class="col-sm-3 control-label">OS</label>
+					<label for="distribution" class="col-sm-3 control-label">OS</label>
 						<div class="col-sm-6">
-							{{ Form::select('os_id', $oss, $server->os_id, ['class' => 'form-control']) }}
+							{{ Form::select('distribution_id', $distributions, $server->distribution_id, ['class' => 'form-control']) }}
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="os_version" class="col-sm-3 control-label">OS Version</label>
+					<label for="distribution_version" class="col-sm-3 control-label">Distro Version</label>
 						<div class="col-sm-6">
-							{{ Form::select('os_version_id', $os_versions, $server->os_version_id, ['class' => 'form-control']) }}
+							{{ Form::select('distribution_version_id', $distribution_versions, $server->distribution_version_id, ['class' => 'form-control']) }}
 						</div>
 				</div>
 				<div class="form-group">
@@ -123,7 +123,13 @@
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="price" class="col-sm-3 control-label">price</label>
+					<label for="cost" class="col-sm-3 control-label">Cost</label>
+					<div class="col-sm-6">
+						<input type="text" name="cost" id="cost" class="form-control" value="{{ $server->cost }}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="price" class="col-sm-3 control-label">Price</label>
 					<div class="col-sm-6">
 						<input type="text" name="price" id="price" class="form-control" value="{{ $server->price }}">
 					</div>

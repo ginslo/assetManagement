@@ -27,19 +27,34 @@
 				<tr>
 					<th class="servtable">Name</th>
 					<th class="servtable">Hostname</th>
-					<th class="servtable">Operating System</th>
+					<th class="servtable">Distribution</th>
 					<th class="servtable">Provider</th>
 					<th class="servtable">DC</th>
+					<th class="servtable">Cost/Month</th>
+					<th class="servtable">Price/Month</th>
 				</tr>
+				<?php $cttl=0; ?>
+				<?php $pttl=0; ?>
 				@foreach($servers as $server)
 					<tr>
 						<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->name }}</a></li>
 						<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->hostname }}</a></li>
-						<td class="servtable"><a href="/oss/os/{{ $server->os->id }}">{{ $server->os->name }} {{ $server->os_version->name }}</a></li>
+						<td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }} {{ $server->distribution_version->name }}</a></li>
 						<td class="servtable"><a href="/providers/provider/{{$server->provider->id}}">{{$server->provider->name}}</a></li>
 						<td class="servtable"><a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></li>
+						<td class="servtable" align="right">${{ number_format($server->cost,2) }}</li>
+						<td class="servtable" align="right">${{ number_format($server->price,2) }}</li>
 					</tr>
+					<?php $cttl=$cttl + $server->cost; ?>
+					<?php $pttl=$pttl + $server->price; ?>
 				@endforeach
+				@if($cttl>0)
+					<tr>
+						<td class="servtable" align="right" colspan="5">Totals:</td>
+						<td class="servtable" align="right">${{ number_format($cttl,2) }}</td>
+						<td class="servtable" align="right">${{ number_format($pttl,2) }}</td>
+					</tr>
+				@endif
 			</table>
 			<br /><br />
 		</div>
@@ -76,9 +91,11 @@
 					<th class="servtable">Manage</th>
 					<th class="servtable">Creation Date</th>
 					<th class="servtable">Expiration Date</th>
+					<th class="servtable">Cost/Year</th>
 					<th class="servtable">Price/Year</th>
 					<th class="servtable">Account</th>
-				<?php $ttl=0; ?>
+				<?php $cttl=0; ?>
+				<?php $pttl=0; ?>
 				@foreach ($domain_names as $domain_name)
 				<tr>
 					<td class="servtable"><a href="/domain_names/domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
@@ -98,16 +115,21 @@
 
 					<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->creation_date)) }}</td>
 					<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</td>
+					<td class="servtable" align="right"> ${{ number_format( $domain_name->cost , 2, '.', '') }}</td>
 					<td class="servtable" align="right"> ${{ number_format( $domain_name->price , 2, '.', '') }}</td>
 					<td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></td>
 				</tr>
-				<?php $ttl=$ttl + $domain_name->price; ?>
+				<?php $cttl=$cttl + $domain_name->cost; ?>
+				<?php $pttl=$pttl + $domain_name->price; ?>
 				@endforeach
-				<tr>
-					<td class="servtable" align="right" colspan="4">Total:</td>
-					<td class="servtable" align="right">${{ number_format($ttl,2) }}</td>
-					<td class="servtable" align="left"> &nbsp;</td>
-				</tr>
+				@if($cttl>0)
+					<tr>
+						<td class="servtable" align="right" colspan="5">Total:</td>
+						<td class="servtable" align="right">${{ number_format($cttl,2) }}</td>
+						<td class="servtable" align="right">${{ number_format($pttl,2) }}</td>
+						<td class="servtable" align="left"> &nbsp;</td>
+					</tr>
+				@endif
 			</table>
 
 		</div>

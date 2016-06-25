@@ -17,6 +17,8 @@ class AccountController extends Controller
 
     public function __construct(AccountRepository $accounts)
     {
+
+        $this->middleware('auth');
         $this->middleware('isAdmin');
 
         $this->accounts = $accounts;
@@ -39,8 +41,16 @@ class AccountController extends Controller
 
     public function store(Request $request, Account $account)
    {
-      $account->create($request->all());
-      return redirect('/accounts');
+      // $account->create($request->all());
+      // return redirect('/accounts');
+
+      $this->validate($request, array(
+        'name' => 'required|max:255|unique:accounts,name',
+        'crm_id' => 'unique:accounts,crm_id'
+      ));
+       $id = $account->create($request->all())->id;
+
+       return redirect()->route('accounts.account.show', $id);
     }
 
     public function show($id)

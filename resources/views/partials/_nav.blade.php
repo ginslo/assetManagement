@@ -25,8 +25,8 @@
                 <li><a href="{{ url('/applications') }}"><i class="fa fa-desktop" aria-hidden="true"></i> Applications</a></li>
                 <li><a href="{{ url('/data_centers') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Data Centers</a></li>
                 <li><a href="{{ url('/domain_names') }}"><i class="fa fa-list" aria-hidden="true"></i> Domain Names</a></li>
-                <li><a href="{{ url('/oss') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Operating Systems</a></li>
-                <li><a href="{{ url('/os_versions') }}"><i class="fa fa-building-o" aria-hidden="true"></i> OS Versions</a></li>
+                <li><a href="{{ url('/distributions') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Distributions</a></li>
+                <li><a href="{{ url('/distribution_versions') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Distro Versions</a></li>
                 <li><a href="{{ url('/providers') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Providers</a></li>
                 <li><a href="{{ url('/purposes') }}"><i class="fa fa-desktop" aria-hidden="true"></i> Purposes</a></li>
                 <li><a href="{{ url('/registrars') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Registrars</a></li>
@@ -55,13 +55,6 @@
                   </ul>
               </li>
           @endif
-
-
-
-
-
-
-
           </ul>
         </li>
       </ul>

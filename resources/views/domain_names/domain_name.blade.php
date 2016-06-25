@@ -11,32 +11,31 @@
   <div class="row">
     <div class="col-sm-8 col-md-offset-2">
 			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/domain_names/">All Domain Names</a>
-			<h1><p style="float:right;"><a href="/domain_names/domain_name/{{ $domain_name->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></p>
-			{{ $title }}</h1>
+			<h1>{{ $title }}</h1>
 			<table>
 				<tr>
-					<th class="servtable">Domain Name: </th><td class="servtable">{{ $domain_name->name }}</span></td>
+					<th class="servtable">Domain Name: </th><td class="servtable">{{ $domain_name->name }} <a href="/domain_names/domain_name/{{ $domain_name->id }}/edit"><span title="Edit" style="float:right;"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></td>
 				</tr>
 				<tr>
-	        <th class="servtable">Creation Date: </th><td class="servtable">{{ $domain_name->creation_date }}</span></td>
+	        <th class="servtable">Creation Date: </th><td class="servtable">{{ $domain_name->creation_date }}</td>
 				</tr>
 				<tr>
-	        <th class="servtable">Expiration Date: </th><td class="servtable">{{ $domain_name->expiration_date }}</span></td>
+	        <th class="servtable">Expiration Date: </th><td class="servtable">{{ $domain_name->expiration_date }}</td>
 				</tr>
 				<tr>
-	        <th class="servtable">User: </th><td class="servtable"><a href="/users/user/{{ $domain_name->user->id }}">{{ $domain_name->user->first_name }} {{ $domain_name->user->last_name }}</a></span></td>
+	        <th class="servtable">User: </th><td class="servtable"><a href="/users/user/{{ $domain_name->user->id }}">{{ $domain_name->user->first_name }} {{ $domain_name->user->last_name }}</a></td>
 				</tr>
 				<tr>
-	        <th class="servtable">Account: </th><td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></span></td>
+	        <th class="servtable">Account: </th><td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></td>
 				</tr>
 				<tr>
-					<th class="servtable">Registrar: </th><td class="servtable"><a href="/registrars/registrar/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></span></td>
+					<th class="servtable">Registrar: </th><td class="servtable"><a href="/registrars/registrar/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
 				</tr>
 				<tr>
-					<th class="servtable">Cost: </th><td class="servtable">${{ number_format( $domain_name->cost , 2, '.', '') }}</span></td>
+					<th class="servtable">Cost: </th><td class="servtable">${{ number_format( $domain_name->cost , 2, '.', '') }}</td>
 				</tr>
 				<tr>
-					<th class="servtable">Price: </th><td class="servtable">${{ number_format( $domain_name->price , 2, '.', '') }}</span></td>
+					<th class="servtable">Price: </th><td class="servtable">${{ number_format( $domain_name->price , 2, '.', '') }}</td>
 				</tr>
 			</table>
 		</div>

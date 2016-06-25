@@ -14,18 +14,17 @@
 		<br />
 		<table>
 			<tr>
-				<th class="servtable">ID</th>
 				<th class="servtable">Application Name</th>
 				<th class="servtable">Source</th>
       </tr>
 				@foreach ($applications as $application)
 			<tr>
-				<td class="servtable">{{ $application->id }}</td>
 				<td class="servtable"><a href="/applications/application/{{ $application->id }}">{{ $application->name }}</a></td>
 				<td class="servtable"><a target="_blank" href="{{ $application->source_url }}">{{ $application->source_url }}</a></td>
 			</tr>
 				@endforeach
 		</table>
+		{{ $applications->links() }}
 	</div>
 </div>
 @endsection

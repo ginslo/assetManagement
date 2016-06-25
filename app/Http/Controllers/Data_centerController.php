@@ -12,6 +12,7 @@ class Data_centerController extends Controller
 {
   public function __construct()
   {
+    $this->middleware('auth');
     $this->middleware('isAdmin');
   }
 
@@ -32,8 +33,12 @@ class Data_centerController extends Controller
 
      public function store(Request $request, Data_center $data_center)
     {
-       $data_center->create($request->all());
-       return redirect('/data_centers/');
+      $this->validate($request, array(
+        'name' => 'required|max:255|unique:data_centers,name'
+      ));
+       $id = $data_center->create($request->all())->id;
+
+       return redirect()->route('data_centers.data_center.show', $id);
      }
 
     public function show($id)

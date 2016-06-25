@@ -19,11 +19,12 @@
 				<th class="servtable">Name</th>
 				<th class="servtable">Hostname</th>
 				<th class="servtable">IP Address</th>
-				<th class="servtable">Operating System</th>
+				<th class="servtable">Distribution</th>
 				<th class="servtable">User</th>
 				<th class="servtable">Account</th>
 				<th class="servtable">Provider</th>
 				<th class="servtable">Data Center</th>
+				<th class="servtable">Cost</th>
 				<th class="servtable">Price</th>
 				<th class="servtable">State</th>
 				<th class="servtable">Monitor</th>
@@ -34,11 +35,12 @@
 					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->name }}</a></td>
 					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->hostname }}</a></td>
 					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->ip_public }}</a></td>
-					<td class="servtable"><a href="/oss/os/{{ $server->os->id }}">{{ $server->os->name }} {{ $server->os_version->name }}</a></td>
+					<td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }} {{ $server->distribution_version->name }}</a></td>
 					<td class="servtable"><a href="/users/user/{{ $server->user_id }}">{{ $server->user->first_name }} {{ $server->user->last_name }}</a></td>
 					<td class="servtable"><a href="/accounts/account/{{ $server->user->account_id }}">{{ $server->user->account->name }}</a></td>
 					<td class="servtable"><a href="/providers/provider/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
 					<td class="servtable"><a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
+					<td class="servtable" align="right"> ${{ number_format( $server->cost , 2, '.', '') }}</td>
 					<td class="servtable" align="right"> ${{ number_format( $server->price , 2, '.', '') }}</td>
 					<td class="servtable"> {{ $serverstate = $server->state == 1 ? "Running" : "Stopped" }}</td>
 					<td class="servtable"><a target="_blank" href="{{ env("MONITOR_URL") }}{{ $server->hostname }}">Nagios</a></td>

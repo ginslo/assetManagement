@@ -20,6 +20,13 @@
 					<th class="servtable">Account:</th><td class="servtable"><a href="/accounts/account/{{ $server->user->account->id }}">{{ $server->user->account->name }}</a></span></td>
 				</tr>
 				<tr>
+					<th class="servtable">Cost:</th><td class="servtable" align="center">${{ number_format( $server->cost , 2, '.', '') }}</span></td>
+				</tr>
+				<tr>
+					<th class="servtable">Price:</th><td class="servtable" align="center">${{ number_format( $server->price , 2, '.', '') }}</span></td>
+				</tr>
+
+				<tr>
 					<th class="servtable">Hostname:</th><td class="servtable">{{ $server->hostname }}</td>
 				</tr>
 				<tr>
@@ -50,7 +57,7 @@
 					<th class="servtable">Memory:</th><td class="servtable">{{ $server->memory }}	</td>
 				</tr>
 				<tr>
-	        <th class="servtable">OS | Version:</th><td class="servtable"><a href="/oss/os/{{ $server->os->id }}">{{ $server->os->name }}</a> | <a href="/os_versions/os_version/{{ $server->os_version->id }}">{{ $server->os_version->name }}</a></td>
+	        <th class="servtable">Distribution | Version:</th><td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }}</a> | <a href="/distribution_versions/distribution_version/{{ $server->distribution_version->id }}">{{ $server->distribution_version->name }}</a></td>
 				</tr>
 				<tr>
 	        <th class="servtable">Kernel:</th><td class="servtable">{{ $server->kernel }}	</td>

@@ -13,7 +13,7 @@
 				{{ csrf_field() }}
 				{{ method_field('PATCH') }}
 				<div class="form-group">
-					<label for="name" class="col-sm-3 control-label">Operating System Name</label>
+					<label for="name" class="col-sm-3 control-label">Distribution Name</label>
 						<div class="col-sm-6">
 							<input type="text" name="name" id="name" class="form-control" value="{{ $os->name }}">
 						</div>
@@ -27,7 +27,7 @@
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-6">
 						<button type="submit" class="btn btn-success btn-lg btn-block">
-							<i class="fa fa-btn fa-plus"></i> Update Operating System
+							<i class="fa fa-btn fa-plus"></i> Update Distribution
 						</button>
 					</div>
 				</div>

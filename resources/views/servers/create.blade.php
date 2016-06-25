@@ -8,7 +8,7 @@
 
 	<div class="row">
 		<div class="col-sm-10 col-md-8 col-md-offset-2">
-			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/users/">{{ $backtitle }}</a>
+			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/servers/">{{ $backtitle }}</a>
 			<h1>Create Server</h1>
 			<form action="/servers/" method="POST" class="form-horizontal">
 				{{ csrf_field() }}
@@ -69,15 +69,15 @@
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="os" class="col-sm-3 control-label">OS</label>
+					<label for="distribution" class="col-sm-3 control-label">OS</label>
 						<div class="col-sm-6">
-							{{ Form::select('os_id', $oss, null, ['class' => 'form-control']) }}
+							{{ Form::select('distribution_id', $distributions, null, ['class' => 'form-control']) }}
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="os_version" class="col-sm-3 control-label">OS Version</label>
+					<label for="distribution_version" class="col-sm-3 control-label">Distro Version</label>
 						<div class="col-sm-6">
-							{{ Form::select('os_version_id', $os_versions, null, ['class' => 'form-control']) }}
+							{{ Form::select('distribution_version_id', $distribution_versions, null, ['class' => 'form-control']) }}
 						</div>
 				</div>
 				<div class="form-group">

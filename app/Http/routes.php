@@ -1,10 +1,10 @@
 <?php
-
-    Route::auth();
+Route::auth();
 
     Route::get('/', function () {
       return view('welcome');
     });
+
 
     Route::group(['prefix' => 'home'], function() {
       Route::resource('/', 'HomeController');
@@ -43,18 +43,18 @@
       Route::resource('domain_name/{id}/destroy', 'Domain_nameController@destroy');
     });
 
-    Route::group(['prefix' => 'oss'], function() {
-      Route::resource('os', 'OsController');
-      Route::resource('/', 'OsController');
-      Route::patch('os/{os}/update', 'OsController@update');
-      Route::resource('os/{id}/destroy', 'OsController@destroy');
+    Route::group(['prefix' => 'distributions'], function() {
+      Route::resource('distribution', 'DistributionController');
+      Route::resource('/', 'DistributionController');
+      Route::patch('distribution/{distribution}/update', 'DistributionController@update');
+      Route::resource('distribution/{id}/destroy', 'DistributionController@destroy');
     });
 
-    Route::group(['prefix' => 'os_versions'], function() {
-      Route::resource('os_version', 'Os_versionController');
-      Route::resource('/', 'Os_versionController');
-      Route::patch('os_version/{os_version}/update', 'Os_versionController@update');
-      Route::resource('os_version/{id}/destroy', 'Os_versionController@destroy');
+    Route::group(['prefix' => 'distribution_versions'], function() {
+      Route::resource('distribution_version', 'Distribution_versionController');
+      Route::resource('/', 'Distribution_versionController');
+      Route::patch('distribution_version/{distribution_version}/update', 'Distribution_versionController@update');
+      Route::resource('distribution_version/{id}/destroy', 'Distribution_versionController@destroy');
     });
 
     Route::group(['prefix' => 'providers'], function() {

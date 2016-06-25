@@ -7,7 +7,7 @@
 @section('sidebar')
 
 @section('content')
-
+@include('common.errors')
 	<div class="row">
 		<div class="col-sm-10 col-md-8 col-md-offset-2">
 			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/registrars/registrar/{{ $registrar->id }}">{{ $backtitle }}</a>

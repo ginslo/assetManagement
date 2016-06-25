@@ -16,14 +16,15 @@ class Server extends Model
     'purpose_id',
     'ip_public',
     'ip_private',
-    'os_id',
-    'os_version_id',
+    'distribution_id',
+    'distribution_version_id',
     'kernel',
     'repo_update',
     'cores',
     'size',
     'memory',
     'user_id',
+    'cost',
     'price'
   ];
 
@@ -52,14 +53,14 @@ class Server extends Model
       return $this->belongsTo(Purpose::class);
     }
 
-    public function os()
+    public function distribution()
     {
-      return $this->belongsTo(Os::class);
+      return $this->belongsTo(Distribution::class);
     }
 
-    public function os_version()
+    public function distribution_version()
     {
-      return $this->belongsTo(Os_version::class);
+      return $this->belongsTo(Distribution_version::class);
     }
 
     public function website()

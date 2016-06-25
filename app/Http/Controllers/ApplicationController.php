@@ -11,12 +11,13 @@ class ApplicationController extends Controller
 {
     public function __construct()
     {
+      $this->middleware('auth');
       $this->middleware('isAdmin');
     }
 
     public function index()
     {
-      $applications = Application::all();
+      $applications = Application::orderBy('name','asc')->paginate(10);
       $title = 'Applications';
       return view('applications.index', compact('title', 'applications'));
     }
@@ -30,8 +31,13 @@ class ApplicationController extends Controller
 
     public function store(Request $request, Application $application)
    {
-      $application->create($request->all());
-      return redirect('/applications/');
+     $this->validate($request, array(
+       'name' => 'required|max:255|unique:applications,name',
+       'source_url' => 'required|url|active_url'
+     ));
+      $id = $application->create($request->all())->id;
+
+      return redirect()->route('applications.application.show', $id);
     }
 
     public function show($id)

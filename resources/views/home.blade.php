@@ -3,6 +3,8 @@
 	{{ $title }}
 @endsection
 @section('content')
+	@include('common.errors')
+	@include('common.messages')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -57,7 +59,7 @@
               				<th class="servtable">Name</th>
               				<th class="servtable">Hostname</th>
               				<th class="servtable">IP Address</th>
-              				<th class="servtable">Operating System</th>
+              				<th class="servtable">Distribution</th>
               				{{-- <th class="servtable">User</th> --}}
               				<th class="servtable">Account</th>
               				<th class="servtable">Provider</th>
@@ -70,7 +72,7 @@
               					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->name }}</a></td>
               					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->hostname }}</a></td>
               					<td class="servtable">{{ $server->ip_public }}</td>
-              					<td class="servtable">{{ $server->os->name }} {{ $server->os_version->name }}</td>
+              					<td class="servtable">{{ $server->distribution->name }} {{ $server->distribution_version->name }}</td>
               					<td class="servtable"><a href="/accounts/my_account/{{ $server->user->account_id }}">{{ $server->user->account->name }}</a></td>
               					<td class="servtable"><a href="/providers/provider_info/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
               					<td class="servtable"> <a href="/data_centers/data_center_info/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>

@@ -18,8 +18,12 @@ class AdminMiddleware
     {
       if (!Auth::guest() && Auth::user()->is_admin) {
         return $next($request);
+      }elseif(Auth::guest()){
+        return view('/home')->with('message','You must be an admin to view that page.');
       }
-      return redirect('/home');
+      // return redirect('/');
+
+      return redirect()->guest('login')->with('message','You must be logged in to view that page. Please log in or register now.');
 
     }
 }

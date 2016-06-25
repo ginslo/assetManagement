@@ -20,6 +20,7 @@ class WebsiteController extends Controller
 {
     public function __construct()
     {
+      $this->middleware('auth');
       $this->middleware('isAdmin');
     }
 
@@ -55,14 +56,15 @@ class WebsiteController extends Controller
     {
       // dd($request->all());
       $this->validate($request, array(
-        'name' => 'required|max:255',
+        'name' => 'required|max:255|unique:websites,name',
+        'subdomain' => 'required|max:255'
       ));
 
-       $website->create($request->all());
+       $id = $website->create($request->all())->id;
 
        Session::flash('success', 'Website has been added');
 
-       return redirect('/websites/');
+       return redirect()->route('websites.website.show', $id);
      }
 
     public function show($id)

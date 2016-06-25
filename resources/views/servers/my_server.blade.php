@@ -46,7 +46,7 @@
 					<th class="servtable">Memory:</th><td class="servtable">{{ $server->memory }}	</td>
 				</tr>
 				<tr>
-	        <th class="servtable">OS | Version:</th><td class="servtable">{{ $server->os->name }} | {{ $server->os_version->name }}</td>
+	        <th class="servtable">Distro| Version:</th><td class="servtable">{{ $server->distribution->name }} | {{ $server->distribution_version->name }}</td>
 				</tr>
 				<tr>
 	        <th class="servtable">Kernel:</th><td class="servtable">{{ $server->kernel }}	</td>

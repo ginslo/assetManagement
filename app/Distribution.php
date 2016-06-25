@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Os extends Model
+class Distribution extends Model
 {
   protected $fillable = ['name','source_url'];
 
@@ -13,8 +13,8 @@ class Os extends Model
     return $this->hasMany(Server::class);
   }
 
-  public function os_version()
+  public function Distribution_version()
   {
-    return $this->belongsTo(Os_version::class);
+    return $this->belongsTo(Distribution_version::class);
   }
 }

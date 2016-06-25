@@ -7,7 +7,7 @@
 @section('sidebar')
 
 @section('content')
-
+@include('common.errors')
   <div class="row">
     <div class="col-sm-12 col-md-6">
         {{-- <p class="leftcol">Name: <span class="propbox pull-right">{{ $account->name }}</span></p> --}}
