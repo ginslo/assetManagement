@@ -10,6 +10,8 @@
 <div class="row">
 	<div class="col-sm-10 col-md-offset-1">
 		<h2>{{ $title }}</h2>
+		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/domain_names/">All Domain Names</a>
+		<br />
 		<a href="/domain_names/create"><span title="Add New domain_name"><i class="fa fa-plus" aria-hidden="true"></i></span> New Domain Name</a>
 		<br />
 		<table width="100%">

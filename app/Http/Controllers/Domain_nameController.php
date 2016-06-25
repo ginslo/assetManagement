@@ -23,7 +23,11 @@ class Domain_nameController extends Controller
 
     public function index()
     {
-      $domain_names = Domain_name::orderBy('name','asc')->paginate(10);
+      $search = \Request::get('search');
+      // $domain_names = Domain_name::orderBy('name','asc')->paginate(10);
+      $domain_names = Domain_name::where('name','like','%'.$search.'%')
+        ->orderBy('name','asc')
+        ->paginate(10);
       $registrar = Registrar::where('id', '=', 'registrar_id');
       $user = User::where('id', '=', 'user_id');
       $title = 'Domain Names';

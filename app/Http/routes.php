@@ -81,6 +81,10 @@ Route::auth();
       Route::resource('registrar/{id}/destroy', 'RegistrarController@destroy');
     });
 
+    Route::group(['prefix' => 'search'], function() {
+      Route::resource('/', 'SearchController');
+    });
+
     Route::group(['prefix' => 'servers'], function() {
       Route::resource('/my_server', 'My_ServerController');
       Route::resource('/server', 'ServerController');

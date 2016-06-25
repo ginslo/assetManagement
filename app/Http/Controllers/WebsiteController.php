@@ -26,17 +26,12 @@ class WebsiteController extends Controller
 
     public function index()
     {
-      // $websites = Website::all()->paginate(10);
-      $websites = Website::orderBy('name','asc')->paginate(10);
-      // $users = User::all();
-      // $web1 = DB::table('websites')->groupBy('user_id')->get();
-      // $web2 = DB::table('websites')->orderBy('name')->get();
-      // return var_dump($web2);
-      // dd($web1);
-      // $servers = $websites->server;
-      // $server = Server::all();
-      // $servers=$server->websites;
-      // dd($servers);
+      $search = \Request::get('search');
+      // $websites = Website::orderBy('name','asc')->paginate(10);
+      $websites = Website::where('name','like','%'.$search.'%')
+        ->orderBy('name','asc')
+        ->paginate(10);
+
       $title = 'Websites';
       return view('websites.index', compact('title','websites'));
     }

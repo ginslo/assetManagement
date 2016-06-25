@@ -14,6 +14,21 @@
       <a class="navbar-brand" href="/home"><img src="{{ URL::to('images/westlinks_logo.png') }}" height="30" /></a>
     @endif
 
+    @unless (Auth::guest())
+      @if(Auth::user()->is_admin == 1)
+        {!! Form::open(['method'=>'GET','url'=>'search','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+        <div class="input-group custom-search-form">
+            <input type="text" class="form-control" name="search" placeholder="Search...">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default-sm">
+                <i class="fa fa-search"> </i>
+              </button>
+            </span>
+        </div>
+        {!! Form::close() !!}
+      @endif
+    @endunless
+
     </div>
       <ul class="nav navbar-nav navbar-right">
         @unless (Auth::guest())
