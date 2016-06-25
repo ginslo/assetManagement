@@ -27,13 +27,15 @@
 		<table>
 			<tr>
 				<th class="servtable">Name</th>
-				<th class="servtable">Distro Name | Version</th>
+				<th class="servtable">Distro Name</th>
+				<th class="servtable">Distro Version</th>
 				<th class="servtable">State</th>
 			</tr>
 			@foreach($servers as $server)
 				<tr>
 					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->name }}</a></td>
-					<td class="servtable">{{ $distribution->name }} | <a href="/distribution_versions/distribution_version/{{ $server->distribution_version->id }}">{{ $server->distribution_version->name }}</a></td>
+					<td class="servtable">{{ $distribution->name }}</td>
+					<td class="servtable"><a href="/distribution_versions/distribution_version/{{ $server->distribution_version->id }}">{{ $server->distribution_version->name }}</a></td>
 					<td class="servtable"> {{ $serverstate = $server->state == 1 ? "Running" : "Stopped" }}</td>
 				</tr>
 			@endforeach

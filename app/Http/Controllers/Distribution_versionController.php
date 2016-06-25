@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Distribution_version;
+use App\Server;
 use App\Http\Requests;
 
 class Distribution_versionController extends Controller
@@ -18,7 +19,7 @@ class Distribution_versionController extends Controller
 
   public function index()
   {
-    $distribution_versions = Distribution_version::all();
+    $distribution_versions = Distribution_version::orderBy('distribution_id')->get();
     $title = 'Distribution Versions';
     return view('distribution_versions.index', compact('title', 'distribution_versions'));
   }
@@ -39,7 +40,7 @@ class Distribution_versionController extends Controller
   public function show($id)
   {
     $distribution_version = Distribution_version::findOrFail($id);
-    $servers = $distribution_version->distribution->server;
+    $servers = $distribution_version->server;
     $title = 'Distribution Details - '.$distribution_version->name;
 
     return view('distribution_versions.distribution_version', compact('title', 'distribution_version','servers'));

@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-sm-9 col-md-4 col-md-offset-3">
+	<div class="col-sm-9 col-sm-6 col-md-offset-3">
 		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/distribution_versions/">All distribution_versions</a>
 		<h1><p style="float:right;"><a href="/distribution_versions/distribution_version/{{ $distribution_version->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a>
 		</p>Version: {{ $distribution_version->name }}</h1>
@@ -17,7 +17,7 @@
 
 <div class="row">
 	<div class="col-sm-9 col-md-offset-3">
-		{{-- <h2>Servers running {{ $distribution->name }}</h2> --}}
+		<h2>Servers running {{ $distribution_version->distribution->name }} {{ $distribution_version->name }}</h2>
 		<table>
 			<tr>
 				<th class="servtable">Name</th>
