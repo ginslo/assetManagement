@@ -28,7 +28,7 @@
                         @foreach ($domain_names as $domain_name)
                         <tr>
                           <td class="servtable"><a href="/domain_names/domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
-                          <td class="servtable"><a href="/registrars/registrar_info/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
+                          <td class="servtable"><a href="/registrars/registrar/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
     											@if($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && Auth::user()->id == 2 )
     								        <td class="servtable"><a target="_blank" href="{{ env('ENOM_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
     											@elseif($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && Auth::user()->id != 2)
@@ -81,8 +81,8 @@
                     					<td class="servtable">{{ $server->ip_public }}</td>
                     					<td class="servtable">{{ $server->distribution->name }} {{ $server->distribution_version->name }}</td>
                     					<td class="servtable"><a href="/accounts/account/{{ $server->user->account_id }}">{{ $server->user->account->name }}</a></td>
-                    					<td class="servtable"><a href="/providers/provider_info/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
-                    					<td class="servtable"> <a href="/data_centers/data_center_info/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
+                    					<td class="servtable"><a href="/providers/provider/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
+                    					<td class="servtable"> <a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
                     					<td class="servtable" align="right"> ${{ number_format( $server->price , 2, '.', '') }}</td>
                     					<td class="servtable"> {{ $serverstate = $server->state == 1 ? "Running" : "Stopped" }}</td>
                     				</tr>
@@ -115,9 +115,9 @@
                   			<tr>
                   				<td class="servtable"><a href="/websites/website/{{ $website->id }}">{{ $website->name }}</a></td>
                   				<td class="servtable"> <a target="_blank" href="http://{{ $website->subdomain }}.{{ $website->domain_name->name }}">{{ $website->subdomain }}.{{ $website->domain_name->name }}</a></td>
-                  				<td class="servtable"> <a href="/applications/application_info/{{ $website->application->id }}">{{ $website->application->name }}</a></td>
-                  				<td class="servtable"> <a href="/providers/provider_info/{{ $website->server->provider->id }}">{{ $website->server->provider->name }}</a></td>
-                  				<td class="servtable"> <a href="/data_centers/data_center_info/{{ $website->server->data_center->id }}">{{ $website->server->data_center->name }}</a></td>
+                  				<td class="servtable"> <a href="/applications/application/{{ $website->application->id }}">{{ $website->application->name }}</a></td>
+                  				<td class="servtable"> <a href="/providers/provider/{{ $website->server->provider->id }}">{{ $website->server->provider->name }}</a></td>
+                  				<td class="servtable"> <a href="/data_centers/data_center/{{ $website->server->data_center->id }}">{{ $website->server->data_center->name }}</a></td>
                   				<td class="servtable"> <a href="/servers/server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
                   				<td class="servtable"> <a href="/accounts/account/{{ $website->user->account->id }}">{{ $website->user->account->name }}</a></td>
                   				@if($website->bugtracker_name == "")
