@@ -18,7 +18,7 @@
       @if(Auth::user()->is_admin == 1)
         {!! Form::open(['method'=>'GET','url'=>'search','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
         <div class="input-group custom-search-form">
-            <input type="text" class="form-control" name="search" placeholder="Search...">
+            {!! Form::text('search',null,array('autofocus','class'=>'form-control','placeholder'=>'Search...')) !!}
             <span class="input-group-btn">
               <button type="submit" class="btn btn-default-sm">
                 <i class="fa fa-search"> </i>

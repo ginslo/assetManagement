@@ -79,7 +79,7 @@
                     					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->name }}</a></td>
                     					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->hostname }}</a></td>
                     					<td class="servtable">{{ $server->ip_public }}</td>
-                    					<td class="servtable">{{ $server->distribution->name }} {{ $server->distribution_version->name }}</td>
+                    					<td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }}</a> <a href="/distribution_versions/distribution_version/{{ $server->distribution_version->id }}">{{ $server->distribution_version->name }}</a></td>
                     					<td class="servtable"><a href="/accounts/account/{{ $server->user->account_id }}">{{ $server->user->account->name }}</a></td>
                     					<td class="servtable"><a href="/providers/provider/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
                     					<td class="servtable"> <a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
