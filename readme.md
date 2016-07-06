@@ -24,3 +24,6 @@ mysql -u dbusername -p dbname < assetManagement-bu.sql
 The result should populate your new database with the required empty tables.
 
 DB migrations will be updated asap.
+
+UPDATE - 7/6/16
+Migrations have been updated using the xethron/migrations-generator:dev-l5 tool. You can now just do a php artisan migrate to create all tables.  
