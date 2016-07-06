@@ -37,8 +37,8 @@ class Website extends Model
     return $this->belongsTo(User::class);
   }
 
-  public function account()
-  {
-    return $this->belongsTo(Account::class);
-  }
+  // public function company()
+  // {
+  //   return $this->belongsTo(Company::class);
+  // }
 }

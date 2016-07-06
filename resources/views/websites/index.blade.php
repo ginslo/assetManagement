@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 
@@ -25,7 +26,7 @@
 				<th class="servtable">Provider</th>
 				<th class="servtable">Server Hostname</th>
 				<th class="servtable">Owner</th>
-				<th class="servtable">Account</th>
+				<th class="servtable">Company</th>
 				<th class="servtable">CI Link</th>
 				<th class="servtable">Tracker</th>
 				<th class="servtable">Monitor</th>
@@ -39,7 +40,7 @@
 				<td class="servtable"> <a href="/providers/provider/{{ $website->server->provider->id }}">{{ $website->server->provider->name }}</a></td>
 				<td class="servtable"> <a href="/servers/server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
 				<td class="servtable"> <a href="/users/user/{{ $website->user->id }}">{{ $website->user->first_name }} {{ $website->user->last_name }}</a></td>
-				<td class="servtable"> <a href="/accounts/account/{{ $website->user->account->id }}">{{ $website->user->account->name }}</a></td>
+				<td class="servtable"> <a href="/companies/company/{{ $website->user->company->id }}">{{ $website->user->company->name }}</a></td>
 				@if($website->ci_name == "None")
 					<td class="servtable">&nbsp;</td>
 				@else

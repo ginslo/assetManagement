@@ -2,6 +2,9 @@
 @section('title')
 	{{ $title }}
 @endsection
+@section('sidebar')
+@endsection
+
 @section('stylesheets')
 
 	{!! Html::style('css/parsley.css') !!}
@@ -21,6 +24,12 @@
 					{{ Form::label('name', 'Application Name', array('class' => 'col-sm-3 control-label')) }}
 						<div class="col-sm-6">
 							{{ Form::text('name', null, array('class' => 'form-control', 'required' => '')) }}
+						</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('slug', 'Slug', array('class' => 'col-sm-3 control-label')) }}
+						<div class="col-sm-6">
+							{{ Form::text('slug', null, array('class' => 'form-control', 'required' => '')) }}
 						</div>
 				</div>
 

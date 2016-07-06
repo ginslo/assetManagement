@@ -25,17 +25,13 @@ class Server extends Model
     'memory',
     'user_id',
     'cost',
-    'price'
+    'price',
+    'bugtracker_name'
   ];
 
     public function user()
     {
       return $this->belongsTo(User::class);
-    }
-
-    public function account()
-    {
-      return $this->belongsTo(Account::class);
     }
 
     public function provider()
@@ -48,11 +44,6 @@ class Server extends Model
       return $this->belongsTo(Data_center::class);
     }
 
-    public function purpose()
-    {
-      return $this->belongsTo(Purpose::class);
-    }
-
     public function distribution()
     {
       return $this->belongsTo(Distribution::class);
@@ -63,6 +54,12 @@ class Server extends Model
       return $this->belongsTo(Distribution_version::class);
     }
 
+    public function purpose()
+    {
+      return $this->belongsTo(Purpose::class);
+    }
+
+
     public function website()
     {
       return $this->hasMany(Website::class);
@@ -72,4 +69,9 @@ class Server extends Model
     {
       return $this->hasMany(Ssh_key::class);
     }
+
+    // public function company()
+    // {
+    //   return $this->belongsTo(Company::class);
+    // }
 }

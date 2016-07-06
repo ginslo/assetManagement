@@ -60,8 +60,8 @@ class ApplicationController extends Controller
     public function update(Request $request, Application $application)
     {
       $application->update($request->all());
-
-      return back();
+      $id=$application->id;
+      return redirect()->route('applications.application.show', $id);
     }
 
     // public function destroy($id)

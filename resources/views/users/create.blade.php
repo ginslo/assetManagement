@@ -3,6 +3,8 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
+
 @section('content')
 	@include('common.errors')
 	<div class="row">
@@ -31,9 +33,9 @@
 							</div>
 					</div>
 					<div class="form-group">
-						<label for="last_name" class="col-sm-3 control-label">Account</label>
+						<label for="last_name" class="col-sm-3 control-label">Company</label>
 							<div class="col-sm-6">
-								{{ Form::select('account_id', $accounts, null, ['class' => 'form-control']) }}
+								{{ Form::select('company_id', $companies, null, ['class' => 'form-control']) }}
 							</div>
 					</div>
 					<div class="form-group">

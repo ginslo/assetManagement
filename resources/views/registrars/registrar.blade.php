@@ -3,6 +3,7 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
 
 @section('content')
 
@@ -16,15 +17,21 @@
   </div>
 </div>
 <div class="row">
-	<div class="col-sm-9 col-md-4 col-md-offset-3">
+	<div class="col-sm-9 col-md-8 col-md-offset-3">
 		<h2>Domain Names at {{ $registrar->name }}</h2>
 		<table>
 			<tr>
 				<th class="servtable">Domain Name</th>
+				<th class="servtable">Expiration</th>
+				<th class="servtable">Owner</th>
+				<th class="servtable">Company</th>
 			</tr>
 			@foreach($domain_names as $domain_name)
 				<tr>
 					<td class="servtable"><a href="/domain_names/domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
+					<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</a></td>
+					<td class="servtable"><a href="/users/user/{{ $domain_name->user->id }}">{{ $domain_name->user->first_name }} {{ $domain_name->user->last_name }}</a></td>
+					<td class="servtable"><a href="/companies/company/{{ $domain_name->user->company->id }}">{{ str_limit($domain_name->user->company->name, $limit=25, $end="...") }}</a></td>
 				</tr>
 			@endforeach
 		</table>

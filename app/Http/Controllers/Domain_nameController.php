@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 use App\Domain_name;
-use App\Account;
+use App\Company;
 use App\Registrar;
 use App\User;
 use App\Http\Controllers\Controller;
@@ -26,7 +26,8 @@ class Domain_nameController extends Controller
       $search = \Request::get('search');
       // $domain_names = Domain_name::orderBy('name','asc')->paginate(10);
       $domain_names = Domain_name::where('name','like','%'.$search.'%')
-        ->orderBy('name','asc')
+        // ->orderBy('expiration_date','asc')
+        ->orderBy('creation_date','asc')
         ->paginate(10);
       $registrar = Registrar::where('id', '=', 'registrar_id');
       $user = User::where('id', '=', 'user_id');

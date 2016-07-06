@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', $title)
 @section('sidebar')
+@endsection
 
 @section('content')
 
@@ -21,7 +22,7 @@
 		    <th class="servtable">Application:</th><td class="servtable"><a href="/applications/application/{{ $website->application->id }}">{{ $website->application->name }}</a></td>
 			</tr>
 			<tr>
-		    <th class="servtable">Owned by:</th><td class="servtable"><a href="/users/user/{{ $users->id }}">{{ $users->first_name }} {{ $users->last_name }}</a> (<a href="/accounts/account/{{ $accounts->id }}">{{ $accounts->name }}</a>)</td>
+		    <th class="servtable">Owned by:</th><td class="servtable"><a href="/users/user/{{ $users->id }}">{{ $users->first_name }} {{ $users->last_name }}</a> (<a href="/companies/company/{{ $companies->id }}">{{ $companies->name }}</a>)</td>
 			</tr>
 			<tr>
 		    <th class="servtable">Server:</th><td class="servtable"><a href="/servers/server/{{ $website->server->id }}">{{ $website->server->name }}</a></td>

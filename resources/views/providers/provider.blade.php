@@ -3,6 +3,7 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
 
 @section('content')
 
@@ -42,12 +43,14 @@
 				<th class="servtable">Server Name</th>
 				<th class="servtable">Hostname</th>
 				<th class="servtable">Data Center</th>
+				<th class="servtable">State</th>
 			</tr>
 			@foreach($servers as $server)
 				<tr>
 					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->name }}</a></td>
 					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->hostname }}</a></td>
-					<td class="servtable"><a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</td>
+					<td class="servtable"><a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
+					<td class="servtable">{!! $serverstate = $server->state == 1 ? "Running" : "Stopped"; !!}</td>
 				</tr>
 			@endforeach
 		</table>

@@ -3,6 +3,7 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
 
 @section('content')
 
@@ -11,8 +12,27 @@
 		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/applications/">All Applications</a>
 		<h1><p style="float:right;"><a href="/applications/application/{{ $application->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></p>
 		{{ $title }}</h1>
-    <p><span id="leftcol">Name: </span><span id="rightcol">{{ $application->name }}</span></p>
-    <p><span id="leftcol">Source URL: </span><span id="rightcol"><a target="_blank" href="{{ $application->source_url }}">{{ $application->source_url }}</a></span></p>
+		<table>
+				<tr>
+						<th valign="top" style="padding:0 5px 0 5px">Name:</th>
+						<th style="padding:0 5px 0 5px">{{ $application->name }}</td>
+				</tr>
+				<tr>
+						<th valign="top" style="padding:0 5px 0 5px">Slug:</th>
+						<th style="padding:0 5px 0 5px">{{ $application->slug }}</td>
+				</tr>
+    		<tr>
+					<th valign="top" style="padding:0 5px 0 5px">Summary: </th>
+					<td style="padding:0 5px 0 5px">{!! $application->summary !!}</td>
+				</tr>
+				<tr>
+					<th valign="top" style="padding:0 5px 0 5px">Description: </th>
+					<td style="padding:0 5px 0 5px">{!! $application->description !!}</td>
+				</tr>
+				<tr>
+					<th valign="top" style="padding:0 5px 0 5px">Source URL: </th>
+					<td style="padding:0 5px 0 5px"><a target="_blank" href="{{ $application->source_url }}">{{ $application->source_url }}</a></td>
+	</table>
   </div>
 </div>
 <div class="row">

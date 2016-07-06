@@ -2,6 +2,8 @@
 @section('title')
 	{{ $title }}
 @endsection
+@section('sidebar')
+@endsection
 @section('content')
 	@include('common.errors')
 	@include('common.messages')
@@ -23,7 +25,7 @@
                           <th class="servtable">Creation Date</th>
                           <th class="servtable">Expiration Date</th>
                           <th class="servtable">Price/Year</th>
-                          <th class="servtable">Account</th>
+                          <th class="servtable">Company</th>
                         <?php $ttl=0; ?>
                         @foreach ($domain_names as $domain_name)
                         <tr>
@@ -44,7 +46,7 @@
                           <td class="servtable">{{ date('m-d-Y', strtotime($domain_name->creation_date)) }}</td>
                           <td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</td>
                           <td class="servtable" align="right"> ${{ number_format( $domain_name->price , 2, '.', '') }}</td>
-                          <td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></td>
+                          <td class="servtable"><a href="/companies/company/{{ $domain_name->user->company->id }}">{{ $domain_name->user->company->name }}</a></td>
                         </tr>
                         <?php $ttl=$ttl + $domain_name->price; ?>
                         @endforeach
@@ -68,7 +70,7 @@
                     				<th class="servtable">IP Address</th>
                     				<th class="servtable">Distribution</th>
                     				{{-- <th class="servtable">User</th> --}}
-                    				<th class="servtable">Account</th>
+                    				<th class="servtable">Company</th>
                     				<th class="servtable">Provider</th>
                     				<th class="servtable">Data Center</th>
                     				<th class="servtable">Price/Month</th>
@@ -80,7 +82,7 @@
                     					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->hostname }}</a></td>
                     					<td class="servtable">{{ $server->ip_public }}</td>
                     					<td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }}</a> <a href="/distribution_versions/distribution_version/{{ $server->distribution_version->id }}">{{ $server->distribution_version->name }}</a></td>
-                    					<td class="servtable"><a href="/accounts/account/{{ $server->user->account_id }}">{{ $server->user->account->name }}</a></td>
+                    					<td class="servtable"><a href="/companies/company/{{ $server->user->company_id }}">{{ $server->user->company->name }}</a></td>
                     					<td class="servtable"><a href="/providers/provider/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
                     					<td class="servtable"> <a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
                     					<td class="servtable" align="right"> ${{ number_format( $server->price , 2, '.', '') }}</td>
@@ -109,7 +111,7 @@
                   				<th class="servtable">Provider</th>
                   				<th class="servtable">Data Center</th>
                   				<th class="servtable">Server Hostname</th>
-                  				<th class="servtable">Account</th>
+                  				<th class="servtable">Company</th>
                   				<th class="servtable">Tracker</th>
                   			@foreach ($websites as $website)
                   			<tr>
@@ -119,7 +121,7 @@
                   				<td class="servtable"> <a href="/providers/provider/{{ $website->server->provider->id }}">{{ $website->server->provider->name }}</a></td>
                   				<td class="servtable"> <a href="/data_centers/data_center/{{ $website->server->data_center->id }}">{{ $website->server->data_center->name }}</a></td>
                   				<td class="servtable"> <a href="/servers/server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
-                  				<td class="servtable"> <a href="/accounts/account/{{ $website->user->account->id }}">{{ $website->user->account->name }}</a></td>
+                  				<td class="servtable"> <a href="/companies/company/{{ $website->user->company->id }}">{{ $website->user->company->name }}</a></td>
                   				@if($website->bugtracker_name == "")
                   					<td class="servtable">&nbsp;</td>
                   				@else

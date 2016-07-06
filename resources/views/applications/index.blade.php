@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 <div class="row">
@@ -15,11 +16,13 @@
 		<table>
 			<tr>
 				<th class="servtable">Application Name</th>
+				<th class="servtable">Slug</th>
 				<th class="servtable">Source</th>
       </tr>
 				@foreach ($applications as $application)
 			<tr>
 				<td class="servtable"><a href="/applications/application/{{ $application->id }}">{{ $application->name }}</a></td>
+				<td class="servtable"><a href="/applications/application/{{ $application->id }}">{{ $application->slug }}</a></td>
 				<td class="servtable"><a target="_blank" href="{{ $application->source_url }}">{{ $application->source_url }}</a></td>
 			</tr>
 				@endforeach

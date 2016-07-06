@@ -3,6 +3,8 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
+
 @section('content')
 	@include('common.errors')
 	<div class="row">

@@ -3,6 +3,8 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
+
 @section('content')
 	@include('common.errors')
 
@@ -34,7 +36,10 @@
 				<div class="form-group">
 					<label for="state" class="col-sm-3 control-label">state</label>
 						<div class="col-sm-6">
-							<input type="text" name="state" id="state" class="form-control" value="">
+							<select name="auto_renew" class="form-control">
+									<option value="0">Stopped</option>
+									<option value="1" Selected>Running</option>
+							</select>
 						</div>
 				</div>
 				<div class="form-group">

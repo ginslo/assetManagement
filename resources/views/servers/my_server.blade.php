@@ -3,17 +3,18 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
 @section('content')
   <div class="row">
     <div class="col-sm-9 col-md-6 col-md-offset-3">
-			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/home">Home</a>
+			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/overview">Company Overview</a>
 			<h1>{{ $title }}</h1>
 			<table>
 				<tr>
 					<th class="servtable">Description:</th><td class="servtable">{{ $server->name }}</td>
 				</tr>
 				<tr>
-					<th class="servtable">Account:</th><td class="servtable"><a href="/accounts/my_account/{{ $server->user->account->id }}">{{ $server->user->account->name }}</a></span></td>
+					<th class="servtable">Company:</th><td class="servtable"><a href="/companies/my_company/{{ $server->user->company->id }}">{{ $server->user->company->name }}</a></span></td>
 				</tr>
 				<tr>
 					<th class="servtable">Hostname:</th><td class="servtable">{{ $server->hostname }}</td>
@@ -65,7 +66,7 @@
   </div>
 	<div class="row">
 		<div class="col-sm-9 col-md-6 col-md-offset-3">
-			<h2>Websites On This Host</h2>
+			<h2>My Websites On This Host</h2>
 			<table>
 				<tr>
 					<th class="servtable">Name</th>

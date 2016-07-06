@@ -8,7 +8,7 @@ use Session;
 use App\Website;
 use App\Domain_name;
 use App\Application;
-// use App\Account;
+// use App\Company;
 // use App\Server;
 // use App\User;
 
@@ -28,9 +28,9 @@ class My_WebsiteController extends Controller
       $application = Application::where('id', '=', $website->application_id);
       $servers = $website->server;
       $users = $website->user;
-      $accounts = $users->account;
+      $companies = $users->company;
       $title = 'website Details - '.$website->name;
 
-      return view('websites.my_website', compact('title', 'website', 'domain_name', 'application','users','servers','accounts','browsershot'));
+      return view('websites.my_website', compact('title', 'website', 'domain_name', 'application','users','servers','companies','browsershot'));
     }
 }

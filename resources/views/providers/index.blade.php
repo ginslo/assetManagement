@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 <div class="row">
@@ -15,7 +16,7 @@
 		<table>
 			<tr>
 				<th class="servtable">ID</th>
-				<th class="servtable">Account Name</th>
+				<th class="servtable">Company Name</th>
 			</tr>
 				@foreach ($providers as $provider)
 			<tr>

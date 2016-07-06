@@ -43,10 +43,12 @@ class ProviderController extends Controller
     {
         $provider = Provider::findOrFail($id);
         $website = Website::all();
+        // $server = Server::findOrFail($id);
         $servers = $provider->server;
         $data_centers = $provider->data_center;
         $websites = $provider->website;
         $title = 'Provider: '.$provider->name;
+        // $serverstate = $servers->state == 1 ? "Running" : "Stopped";
 
         return view('providers.provider', compact('title', 'provider', 'servers', 'data_centers','websites'));
     }

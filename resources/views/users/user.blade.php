@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 
@@ -16,7 +17,7 @@
 			{{ $title }}</h1>
         <p class="leftcol">Name: <span class="propbox pull-right">{{ $user->first_name }} {{ $user->last_name }}</p>
         <p class="leftcol">Email: <span class="propbox pull-right">{{ $user->email }}</span></p>
-        <p class="leftcol">Account: <span class="propbox pull-right"><a href="/accounts/account/{{ $user->account_id }}">{{ $user->account->name }}</a></span></p>
+        <p class="leftcol">Company: <span class="propbox pull-right"><a href="/companies/company/{{ $user->company_id }}">{{ $user->company->name }}</a></span></p>
         <p class="leftcol">Admin Status: <span class="propbox pull-right">{{ $isadmin }}</span></p>
     </div>
   </div>
@@ -66,6 +67,7 @@
 				<tr>
 					<th class="servtable">Name</th>
 					<th class="servtable">URL</th>
+					<th class="servtable">Application</th>
 					<th class="servtable">Server</th>
 					<th class="servtable">Hostname</th>
 				</tr>
@@ -73,6 +75,7 @@
 					<tr>
 					<td class="servtable"><a href="/websites/website/{{ $website->id }}">{{ $website->name }}</a></td>
 					<td class="servtable"><a target="_blank" href="http://{{ $website->subdomain }}.{{ $website->domain_name->name }}">{{ $website->subdomain }}.{{ $website->domain_name->name }}</a></td>
+					<td class="servtable"><a href="/applications/application/{{ $website->application->id }}">{{ $website->application->name }}</a></td>
 					<td class="servtable"><a href="/servers/server/{{ $website->server->id }}">{{ $website->server->name }}</a></td>
 					<td class="servtable"><a href="/servers/server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
 				</tr>
@@ -93,7 +96,7 @@
 					<th class="servtable">Expiration Date</th>
 					<th class="servtable">Cost/Year</th>
 					<th class="servtable">Price/Year</th>
-					<th class="servtable">Account</th>
+					<th class="servtable">Company</th>
 				<?php $cttl=0; ?>
 				<?php $pttl=0; ?>
 				@foreach ($domain_names as $domain_name)
@@ -117,7 +120,7 @@
 					<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</td>
 					<td class="servtable" align="right"> ${{ number_format( $domain_name->cost , 2, '.', '') }}</td>
 					<td class="servtable" align="right"> ${{ number_format( $domain_name->price , 2, '.', '') }}</td>
-					<td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></td>
+					<td class="servtable"><a href="/companies/company/{{ $domain_name->user->company->id }}">{{ $domain_name->user->company->name }}</a></td>
 				</tr>
 				<?php $cttl=$cttl + $domain_name->cost; ?>
 				<?php $pttl=$pttl + $domain_name->price; ?>

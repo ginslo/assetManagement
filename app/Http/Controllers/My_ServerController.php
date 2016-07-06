@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Server;
 use App\User;
-use App\Account;
+use App\Company;
 use App\Provider;
 use App\Data_center;
 use App\Purpose;
@@ -28,7 +28,7 @@ class My_ServerController extends Controller
     {
       $server = Server::findOrFail($id);
       $user = User::where('id', '=', $server->user_id);
-      $account = Account::where('id', '=', $server->user->account_id);
+      $company = Company::where('id', '=', $server->user->company_id);
       $provider = Provider::where('id', '=', $server->provider_id);
       $data_center = Data_center::where('id', '=', $server->data_center_id);
       $purpose = Purpose::where('id', '=', $server->purpose_id);
@@ -40,10 +40,10 @@ class My_ServerController extends Controller
       $title = 'Server: '. $server->name;
 
       if($server->user_id == Auth::user()->id) {
-        return view('servers.my_server', compact('title', 'server', 'user', 'account', 'data_center',
+        return view('servers.my_server', compact('title', 'server', 'user', 'company', 'data_center',
         'purpose', 'os', 'os_version', 'serverstate', 'websites'));
       }else{
-        return redirect('/home');
+        return redirect('/company');
       }
     }
 }

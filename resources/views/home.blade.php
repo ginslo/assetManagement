@@ -1,129 +1,245 @@
 @extends('layouts.master')
-@section('title')
-	{{ $title }}
-@endsection
+@section('title', 'Company Overview')
 @section('content')
-	@include('common.errors')
-	@include('common.messages')
 <div class="container">
-    <div class="row">
+
+    {{-- <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>Account Overview</h2></div>
+                <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                  <h3>Domain Names</h3>
-                  <table width="100%">
-                    <tr>
-                      <th class="servtable">Domain Name</th>
-                      <th class="servtable">Registrar</th>
-                      <th class="servtable">Manage</th>
-                      <th class="servtable">Creation Date</th>
-                      <th class="servtable">Expiration Date</th>
-                      <th class="servtable">Price/Year</th>
-                      <th class="servtable">Account</th>
-                    <?php $ttl=0; ?>
-                    @foreach ($domain_names as $domain_name)
-                    <tr>
-                      <td class="servtable"><a href="/domain_names/my_domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
-                      <td class="servtable"><a href="/registrars/registrar_info/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
-											@if($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && Auth::user()->id == 2 )
-								        <td class="servtable"><a target="_blank" href="{{ env('ENOM_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
-											@elseif($domain_name->DomainNameID != NULL && $domain_name->registrar->id == 1 && Auth::user()->id != 2)
-								        <td class="servtable"><a target="_blank" href="{{ env('ENOMCENTRAL_URL')}}{{ $domain_name->DomainNameID }}">Manage</a></span></td>
-											@elseif($domain_name->registrar->id == 2)
-												<td class="servtable"><a target="_blank" href="{{ env('GOOGLEDOMAIN_URL')}}">Manage</a></span></td>
-											@elseif($domain_name->registrar->id == 3)
-												<td class="servtable"><a target="_blank" href="{{ env('GODADDY_URL')}}">Manage</a></span></td>
-											@else
-												<td class="servtable"><a target="_blank" href="#">&nbsp;</a></span></td>
-											@endif
-
-                      <td class="servtable">{{ date('m-d-Y', strtotime($domain_name->creation_date)) }}</td>
-                      <td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</td>
-                      <td class="servtable" align="right"> ${{ number_format( $domain_name->price , 2, '.', '') }}</td>
-                      <td class="servtable"><a href="/accounts/my_account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></td>
-                    </tr>
-                    <?php $ttl=$ttl + $domain_name->price; ?>
-                    @endforeach
-                    <tr>
-                      <td class="servtable" align="right" colspan="5">Total:</td>
-                      <td class="servtable" align="right">${{ number_format($ttl,2) }}</td>
-                      <td class="servtable" align="left"> &nbsp;</td>
-                    </tr>
-                  </table>
-
-                  <h3>Servers</h3>
-                  <table width="100%">
-              			<tr>
-              				<th class="servtable">Name</th>
-              				<th class="servtable">Hostname</th>
-              				<th class="servtable">IP Address</th>
-              				<th class="servtable">Distribution</th>
-              				{{-- <th class="servtable">User</th> --}}
-              				<th class="servtable">Account</th>
-              				<th class="servtable">Provider</th>
-              				<th class="servtable">Data Center</th>
-              				<th class="servtable">Price/Month</th>
-              				<th class="servtable">State</th>
-                      <?php $ttl=0; ?>
-              				@foreach ($servers as $server)
-              				<tr>
-              					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->name }}</a></td>
-              					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->hostname }}</a></td>
-              					<td class="servtable">{{ $server->ip_public }}</td>
-              					<td class="servtable">{{ $server->distribution->name }} {{ $server->distribution_version->name }}</td>
-              					<td class="servtable"><a href="/accounts/my_account/{{ $server->user->account_id }}">{{ $server->user->account->name }}</a></td>
-              					<td class="servtable"><a href="/providers/provider_info/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
-              					<td class="servtable"> <a href="/data_centers/data_center_info/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
-              					<td class="servtable" align="right"> ${{ number_format( $server->price , 2, '.', '') }}</td>
-              					<td class="servtable"> {{ $serverstate = $server->state == 1 ? "Running" : "Stopped" }}</td>
-              				</tr>
-                      <?php $ttl=$ttl + $server->price; ?>
-              				@endforeach
-                      <tr>
-                        <td class="servtable" align="right" colspan="7">Total:</td>
-                        <td class="servtable" align="right">${{ number_format($ttl,2) }}</td>
-                        <td class="servtable" align="left">&nbsp;</td>
-                      </tr>
-              		</table>
-
-                  <h3>Websites</h3>
-                  <table width="100%">
-              			<tr>
-              				<th class="servtable">Website Name</th>
-              				<th class="servtable">Full URL</th>
-              				<th class="servtable">Application</th>
-              				<th class="servtable">Provider</th>
-              				<th class="servtable">Data Center</th>
-              				<th class="servtable">Server Hostname</th>
-              				<th class="servtable">Account</th>
-              				<th class="servtable">Tracker</th>
-              			@foreach ($websites as $website)
-              			<tr>
-              				<td class="servtable"><a href="/websites/my_website/{{ $website->id }}">{{ $website->name }}</a></td>
-              				<td class="servtable"> <a target="_blank" href="http://{{ $website->subdomain }}.{{ $website->domain_name->name }}">{{ $website->subdomain }}.{{ $website->domain_name->name }}</a></td>
-              				<td class="servtable"> <a href="/applications/application_info/{{ $website->application->id }}">{{ $website->application->name }}</a></td>
-              				<td class="servtable"> <a href="/providers/provider_info/{{ $website->server->provider->id }}">{{ $website->server->provider->name }}</a></td>
-              				<td class="servtable"> <a href="/data_centers/data_center_info/{{ $website->server->data_center->id }}">{{ $website->server->data_center->name }}</a></td>
-              				<td class="servtable"> <a href="/servers/my_server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
-              				<td class="servtable"> <a href="/accounts/my_account/{{ $website->user->account->id }}">{{ $website->user->account->name }}</a></td>
-              				@if($website->bugtracker_name == "")
-              					<td class="servtable">&nbsp;</td>
-              				@else
-              					<td class="servtable"><a target="_blank" href="{{ env('BUGTRACKER_URL') }}/{{ $website->bugtracker_name }}">{{ env("BUGTRACKER_NAME")}}</a></td>
-              				@endif
-              			</tr>
-              			@endforeach
-              		</table>
-
+                    Asset Management Project
                 </div>
             </div>
         </div>
+    </div> --}}
+
+  <main>
+    <img src="/images/panels/hp-panel-1d.png" width="1100" height="368">
+        {{-- <script>
+    $(document).ready(function(){
+        $(function () {
+            $("#ccm-image-slider-952").responsiveSlides({
+                prevText: "",   // String: Text for the "previous" button
+                nextText: "",
+                            pager: true
+                        });
+        });
+    });
+    </script> --}}
+
+    {{-- <div class="ccm-image-slider-container ccm-block-image-slider-pages" >
+        <div class="ccm-image-slider">
+            <div class="ccm-image-slider-inner">
+
+                    <ul class="rslides" id="ccm-image-slider-952">
+                                <li>
+                                        <a href="/services/cms" class="mega-link-overlay"></a>
+                                                    <img src="http://www.westlinks.com/application/files/8114/5311/0178/hp-panel-1d.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
+                        <h2 class="ccm-image-slider-title"></h2>
+                                        </div>
+                    </li>
+                                <li>
+                                        <a href="/services/productivity-and-operations" class="mega-link-overlay"></a>
+                                                    <img src="http://www.westlinks.com/application/files/1514/5311/0210/hp-panel-2d.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
+                        <h2 class="ccm-image-slider-title"></h2>
+                                        </div>
+                    </li>
+                                <li>
+                                        <a href="/services/" class="mega-link-overlay"></a>
+                                                    <img src="http://www.westlinks.com/application/files/4614/3207/9769/hp-panel-3c.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
+                        <h2 class="ccm-image-slider-title"></h2>
+                                        </div>
+                    </li>
+                                <li>
+                                        <a href="h/services/it/cloud" class="mega-link-overlay"></a>
+                                                    <img src="http://www.westlinks.com/application/files/7914/6370/7413/hp-panel-4c2.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
+                        <h2 class="ccm-image-slider-title"></h2>
+                                        </div>
+                    </li>
+                        </ul>
+                    </div>
+
+        </div>
+    </div> --}}
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <div>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+            </div>
+            <div class="col-sm-4">
+              <div class="ccm-custom-style-container ccm-custom-style-main3-314 feature-home-page" >
+                <div class="ccm-block-feature-item">
+                  <h4><i class="fa fa-gears"></i> We Install Your Web Apps</h4>
+                  <p>We offer a variety of web based applications for you ranging from CMS to operations and IT management. After you select your package, we install it for you on a dedicated cloud server and spend time with you to be sure you know how to get started.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="ccm-custom-style-container ccm-custom-style-main4-315 feature-home-page" >
+                <div class="ccm-block-feature-item">
+                  <h4><i class="fa fa-sliders"></i> Your Site Comes to Life</h4>
+                  <p>When your site is delivered to you, it is ready for content to be added. This is available for your team to do or if you choose, we also offer this service at additional cost. Bottom line, this is when your site will start to shine.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="ccm-custom-style-container ccm-custom-style-main5-319 feature-home-page" >
+                <div class="ccm-block-feature-item">
+                  <h4><i class="fa fa-support"></i> We Support You</h4>
+                  <p>We know that this stuff can be hard. And you know how frustrating it can be to wade through customer support at big companies. We are here to help you all the way through the process from new to established customer. We stand behind our services and promise to make sure your satisfaction is 100% guaranteed.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="ccm-custom-style-container ccm-custom-style-main-540" >
+            <p style="text-align: center;"><span class="title-thin">What is Westlinks Online?</span></p>
+            <p style="text-align: left;"></p>
+            <p style="text-align: left;">Based in New York City and servicing the world,&nbsp;Westlinks Online is a niche web development company specializing in facilitating small businesses and individuals&nbsp;with popular&nbsp;open source CMS platforms, Productivity and Operations tools,&nbsp;and IT / Linux System Administration services.</p>
+            <p style="text-align: left;">We help to take the mystery out of getting web operations&nbsp;launched and get projects done quickly and affordably. We work directly with each client to gain a clear understanding of their needs and provide them with the best solutions.</p>
+            <p>We will help you with everything required for a successful launch, including:</p>
+            <ul>
+              <li>Server creation and configuration</li>
+              <li>Software installation and configuration</li>
+              <li>DNS configuration</li>
+              <li>Client training</li>
+            </ul>
+            <p>Post installation services include</p>
+            <ul>
+              <li>Security updates</li>
+              <li>Daily backups</li>
+              <li>24/7 monitoring</li>
+              <li>Customer support</li>
+            </ul>
+            <p>
+              At a glance, our services include:  </p>
+              <ul>
+                <li><a href="https://www.westlinks.com/services" data-concrete5-link-type="ajax">Content Management (CMS) Applications</a></li>
+                <li><a href="https://www.westlinks.com/services" data-concrete5-link-type="ajax">Productivity and Operations</a></li>
+                <li><a href="https://www.westlinks.com/services" data-concrete5-link-type="ajax">IT Services</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-6">
+                <p><span class="title-thin">Latest From the Blog</span></p>
+                <div class="ccm-custom-style-container ccm-custom-style-main6-1225 recent-blog-entry" >
+                  <div class="ccm-block-page-list-wrapper">
+                    <div class="ccm-block-page-list-header">
+                      <h5>Latest From the Blog</h5>
+                    </div>
+                    <div class="ccm-block-page-list-pages">
+                      <div class="ccm-block-page-list-page-entry">
+                        <div class="ccm-block-page-list-page-entry-text">
+                          <div class="ccm-block-page-list-title">
+                            <a href="/blog/westlinks-online-status-check" target="_self">Westlinks Online Status Check</a>
+                          </div>
+                          <div class="ccm-block-page-list-date">
+                            Feb 15, 2016, 12:37 PM
+                          </div>
+                          <div class="ccm-block-page-list-description">
+                            Where are we now and where are we headed?
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ccm-block-page-list-page-entry">
+                        <div class="ccm-block-page-list-page-entry-text">
+                          <div class="ccm-block-page-list-title">
+                            <a href="/blog/fedora-23-beta-available" target="_self">Fedora 23 beta Available</a>
+                          </div>
+                          <div class="ccm-block-page-list-date">
+                            Sep 22, 2015, 9:21 AM
+                          </div>
+                          <div class="ccm-block-page-list-description">
+                            From the RedHat Blog and Fedora Magazine, Fedora 23 Beta is now available for download.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ccm-block-page-list-page-entry">
+                        <div class="ccm-block-page-list-page-entry-text">
+                          <div class="ccm-block-page-list-title">
+                            <a href="/blog/new-services-launched" target="_self">New Services Launched</a>
+                          </div>
+                          <div class="ccm-block-page-list-date">
+                            Nov 13, 2014, 9:34 PM
+                          </div>
+                          <div class="ccm-block-page-list-description">
+                            Westlinks Online is ready for business.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- end .ccm-block-page-list -->
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <p><span class="title-thin">We specialize in making your concepts a reality.</span></p>
+                <p>There are a lot of ways to get a website built these days and we certainly hope you will consider selecting us as your solution. We have years of experience in all aspects of the industry, from hosting, to security,&nbsp;monitoring, backups, and&nbsp;customer service.&nbsp;  </p>
+                <p>We want to answer any questions you have and have several ways for you to ask them. You can click this button, click the help button below, and even schedule a one-on-one voice call using our&nbsp;<a target="_blank" href="https://westlinks.youcanbook.me" data-concrete5-link-type="image">westlinks.youcanbook.me</a> company  </p>
+                <p><a href="https://www.westlinks.com/contact"><span class="btn btn-success">Contact Us Today</span></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="ccm-custom-style-container ccm-custom-style-main8-64 recent-blog-entry" >
+                  <div class="ccm-block-page-list-wrapper">
+                    <div class="ccm-block-page-list-pages">
+                      <div class="ccm-block-page-list-page-entry">
+                      </div>
+                    </div>
+                  </div><!-- end .ccm-block-page-list -->
+                </div>
+              </div>
+              <div class="col-sm-3">
+              </div>
+              <div class="col-sm-6 col-sm-offset-1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ccm-custom-style-pagefooter area-content-accent" >
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <p style="text-align: center"><span class="title-caps">Get your site launched today!</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
 
 
 
 </div>
+@endsection
+
+@section('scripts')
+  <script type="text/javascript" src="http://www.westlinks.com/application/files/cache/js/165549c4fd506158a518be7a4371a993f80ec63c.js" data-source="http://www.westlinks.com/concrete/js/picturefill.js"></script>
+  <script type="text/javascript" src="http://www.westlinks.com/application/files/cache/js/cb95505fb06017c81a822006d434df399ef26d0f.js" data-source="http://www.westlinks.com/concrete/blocks/autonav/templates/responsive_header_navigation/view.js http://www.westlinks.com/concrete/blocks/image_slider/view.js"></script>
+
 @endsection

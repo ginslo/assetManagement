@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
   <div class="row">

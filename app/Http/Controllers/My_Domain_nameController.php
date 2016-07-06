@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Domain_name;
-use App\Account;
+use App\Company;
 use App\Registrar;
 use App\User;
 
@@ -29,7 +29,7 @@ class My_Domain_nameController extends Controller
         if($domain_name->user_id == Auth::user()->id) {
           return view('domain_names.my_domain_name',compact('title', 'domain_name', 'registrar', 'user','websites'));
         } else {
-          return redirect('/home');
+          return redirect('/company');
         }
     }
 }

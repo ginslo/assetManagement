@@ -5,7 +5,7 @@
 @endsection
 
 @section('sidebar')
-
+@endsection
 @section('content')
 @include('common.errors')
 	<div class="row">
@@ -132,6 +132,12 @@
 					<label for="price" class="col-sm-3 control-label">Price</label>
 					<div class="col-sm-6">
 						<input type="text" name="price" id="price" class="form-control" value="{{ $server->price }}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="bugtracker_name" class="col-sm-3 control-label">Bugtracker</label>
+					<div class="col-sm-6">
+						<input type="text" name="bugtracker_name" id="bugtracker_name" class="form-control" value="{{ $server->bugtracker_name }}">
 					</div>
 				</div>
 				<div class="form-group">

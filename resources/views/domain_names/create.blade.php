@@ -3,6 +3,8 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
+
 @section('content')
 	@include('common.errors')
 	<div class="row">
@@ -44,13 +46,22 @@
 				<div class="form-group">
 				<label for="cost" class="col-sm-3 control-label">Cost</label>
 					<div class="col-sm-6">
-						<input type="text" name="cost" id="name" class="form-control" value="">
+						<input type="text" name="cost" id="cost" class="form-control" value="">
 					</div>
 			</div>
 			<div class="form-group">
 				<label for="price" class="col-sm-3 control-label">Price</label>
 					<div class="col-sm-6">
-						<input type="text" name="price" id="name" class="form-control" value="">
+						<input type="text" name="price" id="price" class="form-control" value="">
+					</div>
+			</div>
+			<div class="form-group">
+				<label for="auto_renew" class="col-sm-3 control-label">Auto-Renew</label>
+					<div class="col-sm-6">
+						<select name="auto_renew" class="form-control">
+								<option value="0">Off</option>
+								<option value="1" Selected>Auto</option>
+						</select>
 					</div>
 			</div>
 				<div class="form-group">

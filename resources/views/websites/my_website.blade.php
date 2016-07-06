@@ -1,12 +1,13 @@
 @extends('layouts.master')
 @section('title', $title)
 @section('sidebar')
+@endsection
 
 @section('content')
 
 <div class="row">
 	<div class="col-sm-10 col-md-8 col-md-offset-2">
-		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/home">Home</a>
+		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/overview">Company Overview</a>
 		<h2>Website: {{ $website->name }}</h2>
 		<table>
 			<tr>

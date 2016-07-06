@@ -3,6 +3,8 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
+
 @section('content')
   <div class="row">
     <div class="col-sm-9 col-md-6 col-md-offset-3">
@@ -17,7 +19,7 @@
 					<th class="servtable">Owner:</th><td class="servtable"><a href="/users/user/{{ $server->user_id }}">{{ $server->user->first_name }} {{ $server->user->last_name }}</a></span></td>
 				</tr>
 				<tr>
-					<th class="servtable">Account:</th><td class="servtable"><a href="/accounts/account/{{ $server->user->account->id }}">{{ $server->user->account->name }}</a></span></td>
+					<th class="servtable">Company:</th><td class="servtable"><a href="/companies/company/{{ $server->user->company->id }}">{{ $server->user->company->name }}</a></span></td>
 				</tr>
 				<tr>
 					<th class="servtable">Cost:</th><td class="servtable" align="center">${{ number_format( $server->cost , 2, '.', '') }}</span></td>
@@ -70,6 +72,9 @@
 				</tr>
 				<tr>
 					<th class="servtable">Monitor:</th><td class="servtable"><a target="_blank" href="{{ env("MONITOR_URL") }}{{ $server->hostname }}">Nagios</a>	</td>
+				</tr>
+				<tr>
+					<th class="servtable">Tracker:</th><td class="servtable"><a target="_blank" href="{{ env("BUGTRACKER_URL") }}/{{ $server->bugtracker_name }}">Redmine</a>	</td>
 				</tr>
 			</table>
     </div>

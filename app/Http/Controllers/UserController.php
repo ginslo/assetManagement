@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
-use App\Account;
+use App\Company;
 use App\Server;
 use App\Domain_name;
 use Auth;
@@ -30,10 +30,10 @@ class UserController extends Controller
     public function create()
     {
         // $user = User::all()->lists('full_name', 'id');
-        $accounts = Account::lists('name','id');
+        $companies = Company::lists('name','id');
         $title = 'New User';
         $backtitle = 'Users';
-        return view('users.create', compact('accounts', 'title', 'backtitle'));
+        return view('users.create', compact('companies', 'title', 'backtitle'));
     }
 
      public function store(Request $request, User $user)
@@ -57,10 +57,10 @@ class UserController extends Controller
      public function edit($id)
      {
        $user = User::findOrFail($id);
-       $accounts = Account::lists('name','id');
+       $companies = Company::lists('name','id');
        $backtitle = 'User Detail';
        $title = 'User Edit';
-       return view('users/edit', compact('user', 'accounts', 'title', 'backtitle'));
+       return view('users/edit', compact('user', 'companies', 'title', 'backtitle'));
      }
 
      public function update(Request $request, User $user)

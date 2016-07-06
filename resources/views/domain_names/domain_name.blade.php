@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 
@@ -26,7 +27,7 @@
 	        <th class="servtable">User: </th><td class="servtable"><a href="/users/user/{{ $domain_name->user->id }}">{{ $domain_name->user->first_name }} {{ $domain_name->user->last_name }}</a></td>
 				</tr>
 				<tr>
-	        <th class="servtable">Account: </th><td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ $domain_name->user->account->name }}</a></td>
+	        <th class="servtable">Company: </th><td class="servtable"><a href="/companies/company/{{ $domain_name->user->company->id }}">{{ $domain_name->user->company->name }}</a></td>
 				</tr>
 				<tr>
 					<th class="servtable">Registrar: </th><td class="servtable"><a href="/registrars/registrar/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
@@ -36,6 +37,9 @@
 				</tr>
 				<tr>
 					<th class="servtable">Price: </th><td class="servtable">${{ number_format( $domain_name->price , 2, '.', '') }}</td>
+				</tr>
+				<tr>
+					<th class="servtable">Auto Renew: </th><td class="servtable">{{ $domain_name->auto_renew == 1 ? "Auto" : "Off" }}</td>
 				</tr>
 			</table>
 		</div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Domain_name;
 use App\Registrar;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -40,7 +41,10 @@ class RegistrarController extends Controller
     {
       $registrar = Registrar::findOrFail($id);
       $title = 'Registrar Details - '.$registrar->name;
-      $domain_names = $registrar->domain_name;
+      $domain_names = Domain_name::where('registrar_id','=',$id)
+        ->orderBy('expiration_date','asc')
+        ->get();
+      // $domain_names = $registrar->domain_name;
       return view('registrars.registrar', compact('title', 'registrar','domain_names'));
     }
 

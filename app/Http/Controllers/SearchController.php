@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
-use App\Account;
+use App\Company;
 use App\Application;
 use App\Data_center;
 use App\Distribution;
@@ -29,7 +29,7 @@ class SearchController extends Controller
 
     public function index()
     {
-      $title = 'My Account';
+      $title = 'My Company';
       $uid = Auth::user()->id;
 
       $search = \Request::get('search');

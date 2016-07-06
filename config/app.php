@@ -158,8 +158,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
-
+        Unisharp\Ckeditor\ServiceProvider::class,
+	Way\Generators\GeneratorsServiceProvider::class,
+	Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
     ],
 
     /*

@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 <div class="row">
@@ -24,8 +25,9 @@
 				<th class="servtable">Expiration Date</th>
 				<th class="servtable">Cost</th>
 				<th class="servtable">Price</th>
+				<th class="servtable">Auto Renew</th>
 				<th class="servtable">User</th>
-				<th class="servtable">Account</th>
+				<th class="servtable">Company</th>
 				<th class="servtable">Manage</th>
 			@foreach ($domain_names as $domain_name)
 			<tr>
@@ -37,8 +39,9 @@
 				<td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</td>
 				<td class="servtable" align="right">${{ number_format( $domain_name->cost , 2, '.', '') }}</td>
 				<td class="servtable" align="right">${{ number_format( $domain_name->price , 2, '.', '') }}</td>
+				<td class="servtable">{{ $domain_name->auto_renew == 1 ? "Auto" : "Off" }}</td>
 				<td class="servtable"><a href="/users/user/{{ $domain_name->user->id }}">{{ $domain_name->user->first_name }} {{ $domain_name->user->last_name }}</a></td>
-				<td class="servtable"><a href="/accounts/account/{{ $domain_name->user->account->id }}">{{ str_limit($domain_name->user->account->name, $limit=21, $end="...") }}</a></td>
+				<td class="servtable"><a href="/companies/company/{{ $domain_name->user->company->id }}">{{ str_limit($domain_name->user->company->name, $limit=21, $end="...") }}</a></td>
 				<td class="servtable"><a href="/registrars/registrar/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></td>
 			</tr>
 			@endforeach

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
-  protected $fillable = ['name', 'source_url'];
+  protected $fillable = ['name', 'slug', 'summary', 'description', 'source_url'];
 
   public function website()
   {

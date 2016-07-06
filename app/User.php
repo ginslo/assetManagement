@@ -14,7 +14,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
-        'account_id',
+        'company_id',
         'email',
         'crm_id',
         'password'
@@ -33,9 +33,9 @@ class User extends Authenticatable
     // {
     //   return $this->belongsTo('App\Server');
     // }
-    public function account()
+    public function company()
     {
-      return $this->belongsTo(Account::class);
+      return $this->belongsTo(Company::class);
     }
 
     public function domain_name()

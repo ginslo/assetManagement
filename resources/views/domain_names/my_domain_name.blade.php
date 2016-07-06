@@ -5,12 +5,13 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 
   <div class="row">
     <div class="col-sm-9 col-md-offset-3">
-			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/home">Home</a>
+			<i class="fa fa-backward" aria-hidden="true"></i> <a href="/overview">Company Overview</a>
 			<h1>{{ $title }}</h1>
 			<table>
 				<tr>
@@ -21,6 +22,9 @@
 				</tr>
 				<tr>
 	        <th class="servtable">Expiration Date: </th><td class="servtable">{{ date('m-d-Y', strtotime($domain_name->expiration_date)) }}</span></td>
+				</tr>
+				<tr>
+	        <th class="servtable">Auto Renew: </th><td class="servtable">{{ $domain_name->auto_renew == 1 ? "Auto" : "Off" }}</span></td>
 				</tr>
 				{{-- @if($domain_name->registrar->id == 1)
 					<tr>
@@ -51,7 +55,7 @@
   </div>
 	<div class="row">
 		<div class="col-sm-9 col-md-offset-3">
-			<h2>Websites using {{ $domain_name->name }}</h2>
+			<h2>My websites using {{ $domain_name->name }}</h2>
 			<table>
 				<tr>
 					<th class="servtable">Website Name</th>

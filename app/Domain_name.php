@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Domain_name extends Model
 {
-  protected $fillable = ['name', 'registrar_id','user_id','creation_date','expiration_date','price','cost'];
+  protected $fillable = ['name', 'registrar_id','user_id','creation_date','expiration_date','price','cost','auto_renew'];
 
   public function registrar()
   {

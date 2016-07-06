@@ -3,12 +3,13 @@
 	{{ $title }}
 @endsection
 @section('sidebar')
+@endsection
 
 @section('content')
 
 <div class="row">
 	<div class="col-sm-9 col-md-5 col-md-offset-3">
-		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/home">Home</a>
+		<i class="fa fa-backward" aria-hidden="true"></i> <a href="/overview">Company Overview</a>
 		<h1>{{ $title }}</h1>
 		<table>
 			<tr>

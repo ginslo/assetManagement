@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Server;
 use App\User;
-use App\Account;
+use App\Company;
 use App\Provider;
 use App\Data_center;
 use App\Purpose;
@@ -57,7 +57,7 @@ class ServerController extends Controller
     {
       $server = Server::findOrFail($id);
       $user = User::where('id', '=', $server->user_id);
-      $account = Account::where('id', '=', $server->user->account_id);
+      $company = Company::where('id', '=', $server->user->company_id);
       $provider = Provider::where('id', '=', $server->provider_id);
       $data_center = Data_center::where('id', '=', $server->data_center_id);
       $purpose = Purpose::where('id', '=', $server->purpose_id);
@@ -68,7 +68,7 @@ class ServerController extends Controller
       $serverstate = $server->state == 1 ? "Running" : "Stopped";
       $title = 'Server: '. $server->name;
 
-      return view('servers.server', compact('title', 'server', 'user', 'account', 'data_center',
+      return view('servers.server', compact('title', 'server', 'user', 'company', 'data_center',
       'purpose', 'distribution', 'distribution_version', 'serverstate', 'websites'));
     }
 

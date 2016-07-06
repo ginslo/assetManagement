@@ -5,6 +5,7 @@
 @endsection
 
 @section('sidebar')
+@endsection
 
 @section('content')
 @include('common.errors')
@@ -49,13 +50,22 @@
 				<div class="form-group">
 					<label for="cost" class="col-sm-3 control-label">Cost</label>
 						<div class="col-sm-6">
-							<input type="text" name="cost" id="name" class="form-control" value="{{ $domain_name->cost }}">
+							<input type="text" name="cost" id="cost" class="form-control" value="{{ $domain_name->cost }}">
 						</div>
 				</div>
 				<div class="form-group">
 					<label for="price" class="col-sm-3 control-label">Price</label>
 						<div class="col-sm-6">
-							<input type="text" name="price" id="name" class="form-control" value="{{ $domain_name->price }}">
+							<input type="text" name="price" id="price" class="form-control" value="{{ $domain_name->price }}">
+						</div>
+				</div>
+				<div class="form-group">
+					<label for="auto_renew" class="col-sm-3 control-label">Auto Renew</label>
+						<div class="col-sm-6">
+							<select name="auto_renew" class="form-control">
+									<option value="0"{!! $domain_name->auto_renew == 0 ? " selected=\"selected\"" : "" !!}>Off</option>
+									<option value="1"{!! $domain_name->auto_renew == 1 ? " selected=\"selected\"" : "" !!}>Auto</option>
+							</select>
 						</div>
 				</div>
 				<div class="form-group">
