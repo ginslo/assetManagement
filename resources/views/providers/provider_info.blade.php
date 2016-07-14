@@ -42,9 +42,9 @@
 			@foreach($servers as $server)
         @if($server->user_id == Auth::user()->id)
   				<tr>
-  					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->name }}</a></td>
-  					<td class="servtable"><a href="/servers/my_server/{{ $server->id }}">{{ $server->hostname }}</a></td>
-  					<td class="servtable"><a href="/data_centers/data_center_info/{{ $server->data_center->id }}">{{ $server->data_center->name }}</td>
+  					<td class="servtable"><a href="{{ route('servers.my_server.show', $server->id) }}">{{ $server->name }}</a></td>
+  					<td class="servtable"><a href="{{ route('servers.my_server.show', $server->id) }}">{{ $server->hostname }}</a></td>
+  					<td class="servtable"><a href="{{ route('data_centers.data_center_info.show', $server->data_center->id) }}">{{ $server->data_center->name }}</td>
   				</tr>
         @endif
 			@endforeach

@@ -45,7 +45,7 @@ class RegistrarController extends Controller
         ->orderBy('expiration_date','asc')
         ->get();
       // $domain_names = $registrar->domain_name;
-      return view('registrars.registrar', compact('title', 'registrar','domain_names'));
+      return view('registrars.show', compact('title', 'registrar','domain_names'));
     }
 
      public function edit($id)

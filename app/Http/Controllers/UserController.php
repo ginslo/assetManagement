@@ -8,6 +8,9 @@ use App\User;
 use App\Company;
 use App\Server;
 use App\Domain_name;
+use App\Invoice;
+use App\Invoice_item;
+use App\Transaction;
 use Auth;
 use Image;
 use App\Http\Requests;
@@ -51,7 +54,11 @@ class UserController extends Controller
       $isadmin = $user->is_admin == 1 ? "Admin" : "Not an Admin";
       $servers = $user->server;
       $websites = $user->website;
-      return view('users.user', compact('title', 'user', 'isadmin', 'servers','websites','domain_names'));
+      //$invoices = $user->invoice;
+      $invoices = Invoice::where('user_id', '=',$id)->orderBy('id', 'asc')->get();
+      $transactions = Transaction::where('user_id', '=',$id)->orderBy('id', 'asc')->get();
+      // dd($transactions);
+      return view('users.show', compact('title', 'user', 'isadmin', 'servers','websites','domain_names','invoices','transactions'));
     }
 
      public function edit($id)

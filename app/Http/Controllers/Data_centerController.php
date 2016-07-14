@@ -47,7 +47,7 @@ class Data_centerController extends Controller
       $provider = Provider::where('id', '=', $data_center->provider_id);
       $servers = $data_center->server;
       $title = 'Data Center: '.$data_center->name;
-      return view('data_centers.data_center', compact('title', 'data_center', 'provider','servers'));
+      return view('data_centers.show', compact('title', 'data_center', 'provider','servers'));
     }
 
     public function edit($id)

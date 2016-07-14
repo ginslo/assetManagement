@@ -1360,3 +1360,7 @@ header .ccm-search-block-form{margin-top: 20px}
 }@media all and (min-width: 767px){.ccm-responsive-overlay{display: none !important}
 
 }.ccm-image-slider-container{background-image: url('/concrete/themes/elemental/images/background-slider-default.png')}
+
+.wl-panels {
+	height:368px;
+}

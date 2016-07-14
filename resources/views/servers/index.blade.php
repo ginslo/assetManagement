@@ -32,15 +32,15 @@
 				@foreach ($servers as $server)
 				<tr>
 					<td class="servtable">{{ $server->id }}</td>
-					<td class="servtable"><a href="/servers/server/{{ $server->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></td>
-					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->name }}</a></td>
-					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->hostname }}</a></td>
-					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->ip_public }}</a></td>
-					<td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }} {{ $server->distribution_version->name }}</a></td>
-					<td class="servtable"><a href="/users/user/{{ $server->user_id }}">{{ $server->user->first_name }} {{ $server->user->last_name }}</a></td>
-					<td class="servtable"><a href="/companies/company/{{ $server->user->company_id }}">{{ $server->user->company->name }}</a></td>
-					<td class="servtable"><a href="/providers/provider/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
-					<td class="servtable"><a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
+					<td class="servtable"><a href="{{ route('servers.server.edit', $server->id) }}"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></td>
+					<td class="servtable"><a href="{{ route('servers.server.show', $server->id) }}">{{ $server->name }}</a></td>
+					<td class="servtable"><a href="{{ route('servers.server.show', $server->id) }}">{{ $server->hostname }}</a></td>
+					<td class="servtable"><a href="{{ route('servers.server.show', $server->id) }}">{{ $server->ip_public }}</a></td>
+					<td class="servtable"><a href="{{ route('distributions.distribution.show', $server->distribution->id) }}">{{ $server->distribution->name }} {{ $server->version->name }}</a></td>
+					<td class="servtable"><a href="{{ route('users.user.show', $server->user_id) }}">{{ $server->user->first_name }} {{ $server->user->last_name }}</a></td>
+					<td class="servtable"><a href="{{ route('companies.company.show', $server->user->company_id) }}">{{ $server->user->company->name }}</a></td>
+					<td class="servtable"><a href="{{ route('providers.provider.show', $server->provider->id) }}">{{ $server->provider->name }}</a></td>
+					<td class="servtable"><a href="{{ route('data_centers.data_center.show', $server->data_center->id) }}">{{ $server->data_center->name }}</a></td>
 					<td class="servtable" align="right"> ${{ number_format( $server->cost , 2, '.', '') }}</td>
 					<td class="servtable" align="right"> ${{ number_format( $server->price , 2, '.', '') }}</td>
 					<td class="servtable"> {{ $serverstate = $server->state == 1 ? "Running" : "Stopped" }}</td>

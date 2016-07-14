@@ -21,7 +21,7 @@
 				@foreach ($companies as $company)
 			<tr>
 				<td class="servtable">{{ $company->id }}</td>
-				<td class="servtable"><a href="/companies/company/{{ $company->id }}">{{ $company->name }}</a></td>
+				<td class="servtable"><a href="{{ route('companies.company.show', $company->id) }}">{{ $company->name }}</a></td>
 			</tr>
 				@endforeach
 		</table>

@@ -13,8 +13,8 @@ class Distribution extends Model
     return $this->hasMany(Server::class);
   }
 
-  public function Distribution_version()
+  public function Version()
   {
-    return $this->belongsTo(Distribution_version::class);
+    return $this->belongsTo(Version::class);
   }
 }

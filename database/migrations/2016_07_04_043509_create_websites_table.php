@@ -20,7 +20,7 @@ class CreateWebsitesTable extends Migration {
 			$table->integer('domain_name_id');
 			$table->integer('user_id');
 			$table->integer('server_id');
-			$table->integer('application_id');
+			$table->integer('product_id');
 			$table->string('bugtracker_name', 56)->nullable();
 			$table->string('ci_name', 48)->default('None');
 			$table->timestamps();

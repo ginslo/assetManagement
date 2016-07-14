@@ -26,7 +26,7 @@
 				@foreach($domain_names as $domain_name)
 	        @if($domain_name->user_id == Auth::user()->id)
 						<tr>
-					  	<td class="servtable"><a href="/domain_names/my_domain_name/{{ $domain_name->id }}">{{ $domain_name->name }}</a></td>
+					  	<td class="servtable"><a href="{{ route('domain_names.my_domain_name.show', $domain_name->id) }}">{{ $domain_name->name }}</a></td>
 						</tr>
 	        @endif
 				@endforeach

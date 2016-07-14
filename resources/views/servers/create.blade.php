@@ -80,9 +80,9 @@
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="distribution_version" class="col-sm-3 control-label">Distro Version</label>
+					<label for="version" class="col-sm-3 control-label">Distro Version</label>
 						<div class="col-sm-6">
-							{{ Form::select('distribution_version_id', $distribution_versions, null, ['class' => 'form-control']) }}
+							{{ Form::select('version_id', $versions, null, ['class' => 'form-control']) }}
 						</div>
 				</div>
 				<div class="form-group">
@@ -122,15 +122,36 @@
 						</div>
 				</div>
 				<div class="form-group">
+					<label for="cost" class="col-sm-3 control-label">Cost</label>
+					<div class="col-sm-6">
+						<input type="text" name="cost" id="cost" class="form-control" value="">
+					</div>
+				</div>
+				<div class="form-group">
 					<label for="price" class="col-sm-3 control-label">price</label>
 					<div class="col-sm-6">
 						<input type="text" name="price" id="price" class="form-control" value="">
 					</div>
 				</div>
 				<div class="form-group">
+				<label for="recurring" class="col-sm-3 control-label">Recurring?</label>
+					<div class="col-sm-6">
+						<select name="state" class="form-control">
+								<option value="0">No</option>
+								<option value="1">Yes</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="period" class="col-sm-3 control-label">Recurring Period</label>
+						<div class="col-sm-6">
+							{{ Form::select('period_id', $periods, null, ['class' => 'form-control']) }}
+						</div>
+				</div>
+				<div class="form-group">
 	      	<div class="col-sm-offset-3 col-sm-6">
 	        	<button type="submit" class="btn btn-success btn-lg btn-block">
-	          	<i class="fa fa-btn fa-plus"></i> Update Website
+	          	<i class="fa fa-btn fa-plus"></i> Create Server
 	          </button>
 	        </div>
 	      </div>

@@ -1,69 +1,16 @@
 @extends('layouts.master')
-@section('title', 'Company Overview')
+@section('title', 'Home')
+
 @section('content')
 <div class="container">
 
-    {{-- <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
-
-                <div class="panel-body">
-                    Asset Management Project
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
   <main>
-    <img src="/images/panels/hp-panel-1d.png" width="1100" height="368">
-        {{-- <script>
-    $(document).ready(function(){
-        $(function () {
-            $("#ccm-image-slider-952").responsiveSlides({
-                prevText: "",   // String: Text for the "previous" button
-                nextText: "",
-                            pager: true
-                        });
-        });
-    });
-    </script> --}}
-
-    {{-- <div class="ccm-image-slider-container ccm-block-image-slider-pages" >
-        <div class="ccm-image-slider">
-            <div class="ccm-image-slider-inner">
-
-                    <ul class="rslides" id="ccm-image-slider-952">
-                                <li>
-                                        <a href="/services/cms" class="mega-link-overlay"></a>
-                                                    <img src="http://www.westlinks.com/application/files/8114/5311/0178/hp-panel-1d.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
-                        <h2 class="ccm-image-slider-title"></h2>
-                                        </div>
-                    </li>
-                                <li>
-                                        <a href="/services/productivity-and-operations" class="mega-link-overlay"></a>
-                                                    <img src="http://www.westlinks.com/application/files/1514/5311/0210/hp-panel-2d.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
-                        <h2 class="ccm-image-slider-title"></h2>
-                                        </div>
-                    </li>
-                                <li>
-                                        <a href="/services/" class="mega-link-overlay"></a>
-                                                    <img src="http://www.westlinks.com/application/files/4614/3207/9769/hp-panel-3c.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
-                        <h2 class="ccm-image-slider-title"></h2>
-                                        </div>
-                    </li>
-                                <li>
-                                        <a href="h/services/it/cloud" class="mega-link-overlay"></a>
-                                                    <img src="http://www.westlinks.com/application/files/7914/6370/7413/hp-panel-4c2.png" width="1100" height="368">                                <div class="ccm-image-slider-text">
-                        <h2 class="ccm-image-slider-title"></h2>
-                                        </div>
-                    </li>
-                        </ul>
-                    </div>
-
-        </div>
-    </div> --}}
-
+    <div class="wl-panels">
+      <div><img src="/images/panels/hp-panel-1d.png" width="1100" height="368"></div>
+      <div><img src="/images/panels/hp-panel-2d.png" width="1100" height="368"></div>
+      <div><img src="/images/panels/hp-panel-3c.png" width="1100" height="368"></div>
+      <div><img src="/images/panels/hp-panel-4c2.png" width="1100" height="368"></div>
+    </div>
 
     <div class="container">
       <div class="row">
@@ -73,11 +20,12 @@
               <p>&nbsp;</p>
               <p>&nbsp;</p>
             </div>
+            <p style="text-align: center;"><span class="title-thin">What Does Westlinks Online Do?</span></p>
             <div class="col-sm-4">
               <div class="ccm-custom-style-container ccm-custom-style-main3-314 feature-home-page" >
                 <div class="ccm-block-feature-item">
                   <h4><i class="fa fa-gears"></i> We Install Your Web Apps</h4>
-                  <p>We offer a variety of web based applications for you ranging from CMS to operations and IT management. After you select your package, we install it for you on a dedicated cloud server and spend time with you to be sure you know how to get started.</p>
+                  <p>We offer a variety of web based products for you ranging from CMS to operations and IT management. After you select your package, we install it for you on a dedicated cloud server and spend time with you to be sure you know how to get started.</p>
                 </div>
               </div>
             </div>
@@ -126,9 +74,9 @@
             <p>
               At a glance, our services include:  </p>
               <ul>
-                <li><a href="https://www.westlinks.com/services" data-concrete5-link-type="ajax">Content Management (CMS) Applications</a></li>
-                <li><a href="https://www.westlinks.com/services" data-concrete5-link-type="ajax">Productivity and Operations</a></li>
-                <li><a href="https://www.westlinks.com/services" data-concrete5-link-type="ajax">IT Services</a></li>
+                <li><a href="/services/cms/" data-concrete5-link-type="ajax">Content Management (CMS) Products</a></li>
+                <li><a href="/services/productivity-and-operations/" data-concrete5-link-type="ajax">Productivity and Operations</a></li>
+                <li><a href="/services/devops/" data-concrete5-link-type="ajax">DevOps Services</a></li>
               </ul>
             </div>
           </div>
@@ -193,7 +141,7 @@
                 <p><span class="title-thin">We specialize in making your concepts a reality.</span></p>
                 <p>There are a lot of ways to get a website built these days and we certainly hope you will consider selecting us as your solution. We have years of experience in all aspects of the industry, from hosting, to security,&nbsp;monitoring, backups, and&nbsp;customer service.&nbsp;  </p>
                 <p>We want to answer any questions you have and have several ways for you to ask them. You can click this button, click the help button below, and even schedule a one-on-one voice call using our&nbsp;<a target="_blank" href="https://westlinks.youcanbook.me" data-concrete5-link-type="image">westlinks.youcanbook.me</a> company  </p>
-                <p><a href="https://www.westlinks.com/contact"><span class="btn btn-success">Contact Us Today</span></a></p>
+                <p><a href="/contact"><span class="btn btn-success">Contact Us Today</span></a></p>
               </div>
             </div>
           </div>
@@ -239,7 +187,20 @@
 @endsection
 
 @section('scripts')
-  <script type="text/javascript" src="http://www.westlinks.com/application/files/cache/js/165549c4fd506158a518be7a4371a993f80ec63c.js" data-source="http://www.westlinks.com/concrete/js/picturefill.js"></script>
-  <script type="text/javascript" src="http://www.westlinks.com/application/files/cache/js/cb95505fb06017c81a822006d434df399ef26d0f.js" data-source="http://www.westlinks.com/concrete/blocks/autonav/templates/responsive_header_navigation/view.js http://www.westlinks.com/concrete/blocks/image_slider/view.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('.wl-panels').slick({
+      // setting-name: setting-value
+      autoplay: true,
+      autoplaySpeed: 2000,
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear'
+    });
+  });
+  </script>
 
 @endsection

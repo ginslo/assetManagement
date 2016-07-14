@@ -17,7 +17,7 @@ class Server extends Model
     'ip_public',
     'ip_private',
     'distribution_id',
-    'distribution_version_id',
+    'version_id',
     'kernel',
     'repo_update',
     'cores',
@@ -49,9 +49,9 @@ class Server extends Model
       return $this->belongsTo(Distribution::class);
     }
 
-    public function distribution_version()
+    public function version()
     {
-      return $this->belongsTo(Distribution_version::class);
+      return $this->belongsTo(Version::class);
     }
 
     public function purpose()
@@ -59,6 +59,10 @@ class Server extends Model
       return $this->belongsTo(Purpose::class);
     }
 
+    public function period()
+    {
+      return $this->belongsTo(Period::class);
+    }
 
     public function website()
     {

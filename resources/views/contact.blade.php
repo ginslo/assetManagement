@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-	{{-- {{ $title }} --}}
+	{{ $title }}
 @endsection
 
 @section('sidebar')
@@ -16,7 +16,7 @@
       <p>  	<span class="title-thin">Contact Us</span>  </p>
 
           <div class="ccm-custom-style-container ccm-custom-style-sidebar-925" >
-      <p>  	<a href="#support">Support</a></p><p>  	  	  	  	  	  	  	If you are a customer and experiencing a  technical issue or if you have any questions about our services, visit  the Support Center.</p><p>  	<a href="#feedback">Feedback</a></p><p>  	  	Drop us a line using the feedback form.</p><p>  	<a href="#chat">Chat</a></p><p>  	  	  	  	  	  	  	We are [often] available for one-on-one or group  chat via text or video. Come say hello!</p><p>  	<a href="#call">Call</a></p><p>  	  	  	  	  	  	Direct access to our <a href="https://www.westlinks.com/contact/meeting-scheduler">live calendar</a> allows you to  schedule a call with us at available times for both of us. Unless there  is an emergency, this is a great method of contacting us.</p><p>  	<a href="#social">Social Media</a></p><p>  	  	  	  	  	  	  	Check us out on Twitter and G+</p>
+      <p>  	<a href="#support">Support</a></p><p>  	  	  	  	  	  	  	If you are a customer and experiencing a  technical issue or if you have any questions about our services, visit  the Support Center.</p><p>  	<a href="#feedback">Feedback</a></p><p>  	  	Drop us a line using the feedback form.</p><p>  	<a href="#chat">Chat</a></p><p>  	  	  	  	  	  	  	We are [often] available for one-on-one or group  chat via text or video. Come say hello!</p><p>  	<a href="#call">Call</a></p><p>  	  	  	  	  	  	Direct access to our <a href="/contact/meeting-scheduler">live calendar</a> allows you to  schedule a call with us at available times for both of us. Unless there  is an emergency, this is a great method of contacting us.</p><p>  	<a href="#social">Social Media</a></p><p>  	  	  	  	  	  	  	Check us out on Twitter and G+</p>
       </div>
               </div>
               <div class="col-md-8 col-sm-offset-1 col-content">
@@ -77,7 +77,7 @@
 
       <p>  	<span id="chat">&nbsp;</span></p><p>  	<span class="title-caps-bold">Chat with us</span></p>
 
-      <p>  	  	  	  	  	  	  	There are various ways to contact us via chat or video. Please select the method that works best for you. We can't guarantee that we'll be available on a moments notice however, so for best results, it's best to plan a session using our <a href="https://www.westlinks.com/contact/meeting-scheduler">calendar</a>.</p>
+      <p>  	  	  	  	  	  	  	There are various ways to contact us via chat or video. Please select the method that works best for you. We can't guarantee that we'll be available on a moments notice however, so for best results, it's best to plan a session using our <a href="/contact/meeting-scheduler">calendar</a>.</p>
 
 
   <div id="HTMLBlock911" class="HTMLBlock">

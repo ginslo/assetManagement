@@ -11,9 +11,9 @@ use App\Provider;
 use App\Data_center;
 use App\Purpose;
 use App\Distribution;
-use App\Distribution_version;
+use App\Version;
 use App\Website;
-use App\Application;
+use App\Product;
 
 use App\Http\Requests;
 
@@ -23,7 +23,7 @@ class My_ServerController extends Controller
     {
       $this->middleware('auth');
     }
-    
+
     public function show($id)
     {
       $server = Server::findOrFail($id);
@@ -33,7 +33,7 @@ class My_ServerController extends Controller
       $data_center = Data_center::where('id', '=', $server->data_center_id);
       $purpose = Purpose::where('id', '=', $server->purpose_id);
       $os = Distribution::where('id', '=', $server->os_id);
-      $os_version = Distribution_version::where('id', '=', $server->os_version_id);
+      $version = Version::where('id', '=', $server->version_id);
       $websites = Server::find($id)->website;
 
       $serverstate = $server->state == 1 ? "Running" : "Stopped";
@@ -41,7 +41,7 @@ class My_ServerController extends Controller
 
       if($server->user_id == Auth::user()->id) {
         return view('servers.my_server', compact('title', 'server', 'user', 'company', 'data_center',
-        'purpose', 'os', 'os_version', 'serverstate', 'websites'));
+        'purpose', 'os', 'version', 'serverstate', 'websites'));
       }else{
         return redirect('/company');
       }

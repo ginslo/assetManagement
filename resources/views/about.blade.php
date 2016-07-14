@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-	{{-- {{ $title }} --}}
-@endsection
+@section('title', 'About Us')
 
 @section('sidebar')
 @endsection
@@ -21,8 +19,8 @@
         <div class="col-sm-12">
           <div class="row">
             <div class="col-sm-5">
-              <picture><source srcset="https://www.westlinks.com/application/files/3314/3208/1508/hp-panel-3c-592.png" media="(min-width: 900px)" class="ccm-image-block img-responsive bID-970"><source srcset="https://www.westlinks.com/application/files/3314/3208/1508/hp-panel-3c-592.png" media="(min-width: 768px)" class="ccm-image-block img-responsive bID-970"><source srcset="https://www.westlinks.com/application/files/3314/3208/1508/hp-panel-3c-592.png" class="ccm-image-block img-responsive bID-970"><img src="https://www.westlinks.com/application/files/3314/3208/1508/hp-panel-3c-592.png" alt="#" class="ccm-image-block img-responsive bID-970"></picture>
-              <picture><source srcset="https://www.westlinks.com/application/files/8414/6370/7343/hp-panel-4c-5922.png" media="(min-width: 900px)" class="ccm-image-block img-responsive bID-971"><source srcset="https://www.westlinks.com/application/files/8414/6370/7343/hp-panel-4c-5922.png" media="(min-width: 768px)" class="ccm-image-block img-responsive bID-971"><source srcset="https://www.westlinks.com/application/files/8414/6370/7343/hp-panel-4c-5922.png" class="ccm-image-block img-responsive bID-971"><img src="https://www.westlinks.com/application/files/8414/6370/7343/hp-panel-4c-5922.png" alt="#" class="ccm-image-block img-responsive bID-971"></picture>
+              <picture><source srcset="/images/panels/hp--panel-3c-592.png" media="(min-width: 900px)" class="ccm-image-block img-responsive bID-970"><source srcset="/images/panels/hp--panel-3c-592.png" media="(min-width: 768px)" class="ccm-image-block img-responsive bID-970"><source srcset="/images/panels/hp--panel-3c-592.png" class="ccm-image-block img-responsive bID-970"><img src="/images/panels/hp--panel-3c-592.png" alt="#" class="ccm-image-block img-responsive bID-970"></picture>
+              <picture><source srcset="/images/panels/hp--panel-4c-5922.png" media="(min-width: 900px)" class="ccm-image-block img-responsive bID-971"><source srcset="/images/panels/hp--panel-4c-5922.png" media="(min-width: 768px)" class="ccm-image-block img-responsive bID-971"><source srcset="/images/panels/hp--panel-4c-5922.png" class="ccm-image-block img-responsive bID-971"><img src="/images/panels/hp--panel-4c-5922.png" alt="#" class="ccm-image-block img-responsive bID-971"></picture>
               <p style="text-align: center;">Some of the products we provide</p>
             </div>
             <div class="col-sm-7">

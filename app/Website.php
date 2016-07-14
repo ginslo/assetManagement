@@ -12,7 +12,7 @@ class Website extends Model
     'domain_name_id',
     'user_id',
     'server_id',
-    'application_id',
+    'product_id',
     'bugtracker_name',
     'ci_name'
   ];
@@ -22,9 +22,9 @@ class Website extends Model
     return $this->belongsTo(Domain_name::class);
   }
 
-  public function application()
+  public function product()
   {
-    return $this->belongsTo(Application::class);
+    return $this->belongsTo(Product::class);
   }
 
   public function server()

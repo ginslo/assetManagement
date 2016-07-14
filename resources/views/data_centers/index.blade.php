@@ -22,9 +22,8 @@
 				@foreach ($data_centers as $data_center)
 			<tr>
 				<td class="servtable">{{ $data_center->id }}</td>
-				{{-- <td class="servtable"><a href="{{ url('data_centers/data_center/'.$data_center->id) }}">{{ $data_center->name }}</a></td> --}}
-				<td class="servtable"><a href="/data_centers/data_center/{{ $data_center->id }}">{{ $data_center->name }}</a></td>
-				<td class="servtable"><a href="/providers/provider/{{ $data_center->provider_id }}">{{ $data_center->provider->name }}</a></td>
+				<td class="servtable"><a href="{{ route('data_centers.data_center.show', $data_center->id) }}">{{ $data_center->name }}</a></td>
+				<td class="servtable"><a href="{{ route('providers.provider.show', $data_center->provider_id) }}">{{ $data_center->provider->name }}</a></td>
 			</tr>
 				@endforeach
 		</table>

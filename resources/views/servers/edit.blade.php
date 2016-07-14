@@ -81,9 +81,9 @@
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="distribution_version" class="col-sm-3 control-label">Distro Version</label>
+					<label for="version" class="col-sm-3 control-label">Distro Version</label>
 						<div class="col-sm-6">
-							{{ Form::select('distribution_version_id', $distribution_versions, $server->distribution_version_id, ['class' => 'form-control']) }}
+							{{ Form::select('version_id', $versions, $server->version_id, ['class' => 'form-control']) }}
 						</div>
 				</div>
 				<div class="form-group">
@@ -133,6 +133,21 @@
 					<div class="col-sm-6">
 						<input type="text" name="price" id="price" class="form-control" value="{{ $server->price }}">
 					</div>
+				</div>
+				<div class="form-group">
+				<label for="recurring" class="col-sm-3 control-label">Recurring?</label>
+					<div class="col-sm-6">
+						<select name="state" class="form-control">
+								<option value="0"{!! $server->recurring == 0 ? " selected=\"selected\"" : "" !!}>No</option>
+								<option value="1"{!! $server->recurring == 1 ? " selected=\"selected\"" : "" !!}>Yes</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="period" class="col-sm-3 control-label">Recurring Period</label>
+						<div class="col-sm-6">
+							{{ Form::select('period_id', $periods, $server->period_id, ['class' => 'form-control']) }}
+						</div>
 				</div>
 				<div class="form-group">
 					<label for="bugtracker_name" class="col-sm-3 control-label">Bugtracker</label>

@@ -14,9 +14,6 @@
       <a class="navbar-brand" href="/"><img src="{{ URL::to('images/westlinks_logo.png') }}" height="30" /></a>
     @endif
 
-
-
-
 <ul class="nav navbar-nav navbar-right">
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list" aria-hidden="true"></i> Services<span class="caret"></span></a>
@@ -26,17 +23,21 @@
         @if(Auth::user()->is_admin == 1)
           <li><a href="#{{-- url('/admin') --}}">Admin</a></li>
             <ul>
+              <li><a href="{{ url('/categories') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Categories</a></li>
               <li><a href="{{ url('/companies') }}"><i class="fa fa-university" aria-hidden="true"></i> Companies</a></li>
-              <li><a href="{{ url('/applications') }}"><i class="fa fa-desktop" aria-hidden="true"></i> Applications</a></li>
               <li><a href="{{ url('/data_centers') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Data Centers</a></li>
-              <li><a href="{{ url('/domain_names') }}"><i class="fa fa-list" aria-hidden="true"></i> Domain Names</a></li>
               <li><a href="{{ url('/distributions') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Distributions</a></li>
-              <li><a href="{{ url('/distribution_versions') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Distro Versions</a></li>
+              <li><a href="{{ url('/domain_names') }}"><i class="fa fa-list" aria-hidden="true"></i> Domain Names</a></li>
+              <li><a href="{{ url('/invoices') }}"><i class="fa fa-list" aria-hidden="true"></i> Invoices</a></li>
+              <li><a href="{{ url('/products') }}"><i class="fa fa-desktop" aria-hidden="true"></i> Products</a></li>
               <li><a href="{{ url('/providers') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Providers</a></li>
               <li><a href="{{ url('/purposes') }}"><i class="fa fa-desktop" aria-hidden="true"></i> Purposes</a></li>
               <li><a href="{{ url('/registrars') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Registrars</a></li>
               <li><a href="{{ url('/servers') }}"><i class="fa fa-server" aria-hidden="true"></i> Servers</a></li>
+              <li><a href="{{ url('/subscriptions') }}"><i class="fa fa-server" aria-hidden="true"></i> Subscriptions</a></li>
+              <li><a href="{{ url('/transactions') }}"><i class="fa fa-server" aria-hidden="true"></i> Transactions</a></li>
               <li><a href="{{ url('/users') }}"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+              <li><a href="{{ url('/versions') }}"><i class="fa fa-building-o" aria-hidden="true"></i>Versions</a></li>
               <li><a href="{{ url('/websites') }}"><i class="fa fa-file-o" aria-hidden="true"></i> Websites</a></li>
             </ul>
           @endif
@@ -59,10 +60,10 @@
           <li class="dropdown"><a href="{{ url('/services/productivity-and-operations/mantisbt') }}">Mantis BT</a></li>
           <li class="dropdown"><a href="{{ url('/services/productivity-and-operations/googleaps') }}">Google for Work</a></li>
         </ul>
-      <li><a href="{{ url('/services/it') }}">IT</a></li>
+      <li><a href="{{ url('/services/devops') }}">DevOps</a></li>
         <ul>
-          <li class="dropdown"><a href="{{ url('/services/it/cloud') }}">Cloud Hosting</a></li>
-          <li class="dropdown"><a href="{{ url('/services/it/custom-web') }}">Custom Web Programming</a></li>
+          <li class="dropdown"><a href="{{ url('/services/devops/cloud') }}">Cloud Hosting</a></li>
+          <li class="dropdown"><a href="{{ url('/services/devops/custom-web') }}">Custom Web Programming</a></li>
         </ul>
       </ul>
     <li><a href="{{ url('/about') }}"><i class="fa fa-desktop" aria-hidden="true"></i> About</a></li>
@@ -70,13 +71,6 @@
     <li><a href="{{ url('/store') }}"><i class="fa fa-list" aria-hidden="true"></i> Store</a></li>
   </li>
 </ul>
-
-
-
-
-
-
-
 
     </div>
       <ul class="nav navbar-nav navbar-right">
@@ -97,28 +91,6 @@
               @endif
             @endunless
 
-
-        {{-- @unless (Auth::guest())
-          @if(Auth::user()->is_admin == 1)
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list" aria-hidden="true"></i> Select<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{ url('/companies') }}"><i class="fa fa-university" aria-hidden="true"></i> Companies</a></li>
-                <li><a href="{{ url('/applications') }}"><i class="fa fa-desktop" aria-hidden="true"></i> Applications</a></li>
-                <li><a href="{{ url('/data_centers') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Data Centers</a></li>
-                <li><a href="{{ url('/domain_names') }}"><i class="fa fa-list" aria-hidden="true"></i> Domain Names</a></li>
-                <li><a href="{{ url('/distributions') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Distributions</a></li>
-                <li><a href="{{ url('/distribution_versions') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Distro Versions</a></li>
-                <li><a href="{{ url('/providers') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Providers</a></li>
-                <li><a href="{{ url('/purposes') }}"><i class="fa fa-desktop" aria-hidden="true"></i> Purposes</a></li>
-                <li><a href="{{ url('/registrars') }}"><i class="fa fa-building-o" aria-hidden="true"></i> Registrars</a></li>
-                <li><a href="{{ url('/servers') }}"><i class="fa fa-server" aria-hidden="true"></i> Servers</a></li>
-                <li><a href="{{ url('/users') }}"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
-                <li><a href="{{ url('/websites') }}"><i class="fa fa-file-o" aria-hidden="true"></i> Websites</a></li>
-              </ul>
-            </li>
-          @endif
-        @endunless --}}
         <li class="dropdown">
           @if (Auth::guest())
               <li><a href="{{ url('/login') }}">Login</a></li>

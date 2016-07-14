@@ -21,7 +21,7 @@
 			@foreach ($distributions as $distribution)
 				<tr>
 					<td class="servtable">{{ $distribution->id }}</td>
-					<td class="servtable"><a href="/distributions/distribution/{{ $distribution->id }}">{{ $distribution->name }}</a></td>
+					<td class="servtable"><a href="{{ route('distributions.distribution.show', $distribution->id) }}">{{ $distribution->name }}</a></td>
 				</tr>
 					@endforeach
 			</table>

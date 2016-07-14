@@ -81,7 +81,7 @@
                     					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->name }}</a></td>
                     					<td class="servtable"><a href="/servers/server/{{ $server->id }}">{{ $server->hostname }}</a></td>
                     					<td class="servtable">{{ $server->ip_public }}</td>
-                    					<td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }}</a> <a href="/distribution_versions/distribution_version/{{ $server->distribution_version->id }}">{{ $server->distribution_version->name }}</a></td>
+                    					<td class="servtable"><a href="/distributions/distribution/{{ $server->distribution->id }}">{{ $server->distribution->name }}</a> <a href="/versions/version/{{ $server->version->id }}">{{ $server->version->name }}</a></td>
                     					<td class="servtable"><a href="/companies/company/{{ $server->user->company_id }}">{{ $server->user->company->name }}</a></td>
                     					<td class="servtable"><a href="/providers/provider/{{ $server->provider->id }}">{{ $server->provider->name }}</a></td>
                     					<td class="servtable"> <a href="/data_centers/data_center/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></td>
@@ -107,7 +107,7 @@
                   			<tr>
                   				<th class="servtable">Website Name</th>
                   				<th class="servtable">Full URL</th>
-                  				<th class="servtable">Application</th>
+                  				<th class="servtable">Product</th>
                   				<th class="servtable">Provider</th>
                   				<th class="servtable">Data Center</th>
                   				<th class="servtable">Server Hostname</th>
@@ -117,7 +117,7 @@
                   			<tr>
                   				<td class="servtable"><a href="/websites/website/{{ $website->id }}">{{ $website->name }}</a></td>
                   				<td class="servtable"> <a target="_blank" href="http://{{ $website->subdomain }}.{{ $website->domain_name->name }}">{{ $website->subdomain }}.{{ $website->domain_name->name }}</a></td>
-                  				<td class="servtable"> <a href="/applications/application/{{ $website->application->id }}">{{ $website->application->name }}</a></td>
+                  				<td class="servtable"> <a href="/products/product/{{ $website->product->id }}">{{ $website->product->name }}</a></td>
                   				<td class="servtable"> <a href="/providers/provider/{{ $website->server->provider->id }}">{{ $website->server->provider->name }}</a></td>
                   				<td class="servtable"> <a href="/data_centers/data_center/{{ $website->server->data_center->id }}">{{ $website->server->data_center->name }}</a></td>
                   				<td class="servtable"> <a href="/servers/server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
@@ -169,17 +169,17 @@
                       @endif
                   </div>
                   <div class="panel-body">
-                    @if(count($applications) == 0)
-                      <h3> No Applications Matched </h3>
+                    @if(count($products) == 0)
+                      <h3> No Products Matched </h3>
                     @else
-                      <h3>Applications</h3>
+                      <h3>Products</h3>
                       <table>
                         <tr>
                           <th class="servtable">Name</th>
                           {{-- <th class="servtable">Email</th> --}}
-                        @foreach ($applications as $application)
+                        @foreach ($products as $product)
                         <tr>
-                          <td class="servtable"><a href="/applications/application/{{ $application->id }}">{{ $application->name }}</a></td>
+                          <td class="servtable"><a href="/products/product/{{ $product->id }}">{{ $product->name }}</a></td>
                           {{-- <td class="servtable"><a href="/users/user/{{ $user->id }}">{{ $user->email }}</a></td> --}}
                         </tr>
                         @endforeach

@@ -66,7 +66,7 @@ class CompanyController extends Controller
       $title = 'Company: '.$company->name;
       $backtitle = 'Companies';
 
-      return view('companies/company', compact('company','title','backtitle','users','websites'));
+      return view('companies/show', compact('company','title','backtitle','users','websites'));
     }
 
     public function edit($id)

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Website;
 use App\Domain_name;
-use App\Application;
+use App\Product;
 // use App\Company;
 // use App\Server;
 // use App\User;
@@ -25,12 +25,12 @@ class My_WebsiteController extends Controller
     {
       $website = Website::findOrFail($id);
       $domain_name = Domain_name::where('id', '=', $website->domain_name_id);
-      $application = Application::where('id', '=', $website->application_id);
+      $product = Product::where('id', '=', $website->product_id);
       $servers = $website->server;
       $users = $website->user;
       $companies = $users->company;
       $title = 'website Details - '.$website->name;
 
-      return view('websites.my_website', compact('title', 'website', 'domain_name', 'application','users','servers','companies','browsershot'));
+      return view('websites.my_website', compact('title', 'website', 'domain_name', 'product','users','servers','companies','browsershot'));
     }
 }

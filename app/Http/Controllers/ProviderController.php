@@ -50,7 +50,7 @@ class ProviderController extends Controller
         $title = 'Provider: '.$provider->name;
         // $serverstate = $servers->state == 1 ? "Running" : "Stopped";
 
-        return view('providers.provider', compact('title', 'provider', 'servers', 'data_centers','websites'));
+        return view('providers.show', compact('title', 'provider', 'servers', 'data_centers','websites'));
     }
 
     public function showcrm($crmid)

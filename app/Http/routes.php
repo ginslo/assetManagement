@@ -9,12 +9,11 @@ Route::auth();
       return view('about');
     });
 
-    Route::group(['prefix' => 'applications'], function() {
-      Route::resource('application_info', 'Application_InfoController');
-      Route::resource('application', 'ApplicationController');
-      Route::resource('/', 'ApplicationController');
-      Route::patch('application/{application}/update', 'ApplicationController@update');
-      Route::resource('application/{id}/destroy', 'ApplicationController@destroy');
+    Route::group(['prefix' => 'categories'], function() {
+      Route::resource('category', 'CategoryController');
+      Route::resource('/', 'CategoryController');
+      Route::patch('category/{category}/update', 'CategoryController@update');
+      Route::resource('category/{id}/destroy', 'CategoryController@destroy');
     });
 
     Route::group(['prefix' => 'companies'], function() {
@@ -45,13 +44,6 @@ Route::auth();
       Route::resource('distribution/{id}/destroy', 'DistributionController@destroy');
     });
 
-    Route::group(['prefix' => 'distribution_versions'], function() {
-      Route::resource('distribution_version', 'Distribution_versionController');
-      Route::resource('/', 'Distribution_versionController');
-      Route::patch('distribution_version/{distribution_version}/update', 'Distribution_versionController@update');
-      Route::resource('distribution_version/{id}/destroy', 'Distribution_versionController@destroy');
-    });
-
     Route::group(['prefix' => 'domain_names'], function() {
       Route::resource('my_domain_name', 'My_Domain_nameController');
       Route::resource('domain_name', 'Domain_nameController');
@@ -60,10 +52,33 @@ Route::auth();
       Route::resource('domain_name/{id}/destroy', 'Domain_nameController@destroy');
     });
 
+    Route::group(['prefix' => 'invoices'], function() {
+      Route::resource('my_invoice', 'My_InvoiceController');
+      Route::resource('invoice', 'InvoiceController');
+      Route::resource('/', 'InvoiceController');
+      Route::patch('invoice/{invoice}/update', 'InvoiceController@update');
+      Route::resource('invoice/{id}/destroy', 'InvoiceController@destroy');
+    });
+
+    Route::group(['prefix' => 'orders'], function() {
+      Route::resource('order', 'OrderController');
+      Route::resource('/', 'OrderController');
+      Route::patch('order/{order}/update', 'OrderController@update');
+      Route::resource('order/{id}/destroy', 'OrderController@destroy');
+    });
+
     Route::group(['prefix' => 'overview'], function() {
       Route::resource('/', 'OverviewController');
       Route::resource('overview/', 'OverviewController@byuser');
       Route::resource('/base', 'OverviewController@base');
+    });
+
+    Route::group(['prefix' => 'products'], function() {
+      Route::resource('product_info', 'Product_InfoController');
+      Route::resource('product', 'ProductController');
+      Route::resource('/', 'ProductController');
+      Route::patch('product/{product}/update', 'ProductController@update');
+      Route::resource('product/{id}/destroy', 'ProductController@destroy');
     });
 
     Route::group(['prefix' => 'profile'], function() {
@@ -100,26 +115,39 @@ Route::auth();
     });
 
     Route::group(['prefix' => 'servers'], function() {
-      Route::resource('/my_server', 'My_ServerController');
-      Route::resource('/server', 'ServerController');
+      Route::resource('my_server', 'My_ServerController');
+      Route::resource('server', 'ServerController');
       Route::resource('/', 'ServerController');
       Route::patch('server/{server}/update', 'ServerController@update');
       Route::resource('server/{id}/destroy', 'ServerController@destroy');
     });
 
-    Route::group(['prefix' => 'services'], function() {
-      Route::resource('/my_services', 'My_ServiceController');
-      Route::resource('/cms', 'ServiceController@cms');
-      Route::resource('/it', 'ServiceController@it');
-      Route::resource('/productivity-and-operations', 'ServiceController@productivityandoperations');
-      Route::resource('/services', 'ServiceController');
-      Route::resource('/', 'ServiceController');
-      Route::patch('services/{services}/update', 'ServiceController@update');
-      Route::resource('services/{id}/destroy', 'ServiceController@destroy');
-    });
+    Route::get('services/', 'ServiceController@index');
+    Route::get('services/{category_id}', 'ServiceController@prodid');
+    Route::get('services/{category_slug}', 'ServiceController@category');
+    Route::get('services/{category_slug}/{service_slug}', 'ServiceController@service');
+
 
     Route::get('store', function () {
       return redirect('https://store.westlinks.com');
+    });
+
+    Route::group(['prefix' => 'subscriptions'], function() {
+      Route::resource('subscription', 'SubscriptionController');
+      Route::resource('my_subscription', 'My_SubscriptionController@show');
+      Route::resource('my_subscriptions', 'My_SubscriptionController');
+      Route::resource('/', 'SubscriptionController');
+      Route::patch('subscription/{subscription}/update', 'SubscriptionController@update');
+      Route::resource('subscription/{id}/destroy', 'SubscriptionController@destroy');
+    });
+
+    Route::group(['prefix' => 'transactions'], function() {
+      Route::resource('transaction', 'TransactionController');
+      Route::resource('my_transaction', 'My_TransactionController@show');
+      Route::resource('my_transactions', 'My_TransactionController');
+      Route::resource('/', 'TransactionController');
+      Route::patch('transaction/{transaction}/update', 'TransactionController@update');
+      Route::resource('transaction/{id}/destroy', 'TransactionController@destroy');
     });
 
     Route::group(['prefix' => 'users'], function() {
@@ -127,6 +155,13 @@ Route::auth();
       Route::resource('/', 'UserController');
       Route::patch('user/{user}/update', 'UserController@update');
       Route::resource('user/{id}/destroy', 'UserController@destroy');
+    });
+
+    Route::group(['prefix' => 'versions'], function() {
+      Route::resource('version', 'VersionController');
+      Route::resource('/', 'VersionController');
+      Route::patch('version/{version}/update', 'VersionController@update');
+      Route::resource('version/{id}/destroy', 'VersionController@destroy');
     });
 
     Route::group(['prefix' => 'websites'], function() {

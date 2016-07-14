@@ -43,6 +43,11 @@ class User extends Authenticatable
       return $this->hasMany(Domain_name::class);
     }
 
+    public function invoice()
+    {
+      return $this->belongsTo(Invoice::class);
+    }
+
     public function server()
     {
       return $this->hasMany(Server::class);

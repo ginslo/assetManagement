@@ -33,14 +33,14 @@
 			@foreach ($websites as $website)
 			<tr>
 				<td class="servtable">{{ $website->id }}</td>
-				<td class="servtable"><a href="/websites/website/{{ $website->id }}/edit"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></td>
-				<td class="servtable"><a href="/websites/website/{{ $website->id }}">{{ $website->name }}</a></td>
+				<td class="servtable"><a href="{{ route('websites.website.edit', $website->id) }}"><span title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></a></td>
+				<td class="servtable"><a href="{{ route('websites.website.show', $website->id) }}">{{ $website->name }}</a></td>
 				<td class="servtable"> <a target="_blank" href="http://{{ $website->subdomain }}.{{ $website->domain_name->name }}">{{ $website->subdomain }}.{{ $website->domain_name->name }}</a></td>
-				<td class="servtable"> <a href="/applications/application/{{ $website->application->id }}">{{ $website->application->name }}</a></td>
-				<td class="servtable"> <a href="/providers/provider/{{ $website->server->provider->id }}">{{ $website->server->provider->name }}</a></td>
-				<td class="servtable"> <a href="/servers/server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
-				<td class="servtable"> <a href="/users/user/{{ $website->user->id }}">{{ $website->user->first_name }} {{ $website->user->last_name }}</a></td>
-				<td class="servtable"> <a href="/companies/company/{{ $website->user->company->id }}">{{ $website->user->company->name }}</a></td>
+				<td class="servtable"> <a href="{{ route('products.product.show', $website->product->id) }}">{{ $website->product->name }}</a></td>
+				<td class="servtable"> <a href="{{ route('providers.provider.show', $website->server->provider->id) }}">{{ $website->server->provider->name }}</a></td>
+				<td class="servtable"> <a href="{{ route('servers.server.show', $website->server->id) }}">{{ $website->server->hostname }}</a></td>
+				<td class="servtable"> <a href="{{ route('users.user.show', $website->user->id) }}">{{ $website->user->first_name }} {{ $website->user->last_name }}</a></td>
+				<td class="servtable"> <a href="{{ route('companies.company.show', $website->user->company->id) }}">{{ $website->user->company->name }}</a></td>
 				@if($website->ci_name == "None")
 					<td class="servtable">&nbsp;</td>
 				@else

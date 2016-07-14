@@ -11,9 +11,13 @@ use App\Provider;
 use App\Data_center;
 use App\Purpose;
 use App\Distribution;
-use App\Distribution_version;
+use App\Version;
 use App\Website;
-use App\Application;
+use App\Product;
+use App\Invoice;
+use App\Invoice_item;
+use App\Transaction;
+use App\Subscription;
 use DB;
 
 use App\Http\Requests;
@@ -38,8 +42,12 @@ class OverviewController extends Controller
       // dd($user);
       $servers = Server::where('user_id','=',$uid)->orderBy('name','asc')->paginate(20);
       $websites = Website::where('user_id','=',$uid)->orderBy('name','asc')->paginate(20);
-
-      return view('overview', compact('title','domain_names','registrar','users','servers','websites'));
+      $invoices = Invoice::where('user_id', '=',$uid)->orderBy('id', 'asc')->get();
+      $transactions = Transaction::where('user_id', '=',$uid)->orderBy('id', 'asc')->get();
+      $subscriptions = Subscription::where('user_id', '=',$uid)->orderBy('id', 'asc')->get();
+      // $invoice_items = Invoice_item::where('invoice_id', '=', $invoices->id)->get();
+      // dd($transactions);
+      return view('overview', compact('title','domain_names','registrar','users','servers','websites','invoices','invoice_items','transactions','subscriptions'));
     }
 
     public function byuser($id=1)

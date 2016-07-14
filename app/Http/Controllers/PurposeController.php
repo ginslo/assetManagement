@@ -41,7 +41,7 @@ class PurposeController extends Controller
     $purpose = Purpose::findOrFail($id);
     $title = 'purpose Details - '.$purpose->name;
 
-    return view('purposes.purpose', compact('title', 'purpose'));
+    return view('purposes.show', compact('title', 'purpose'));
   }
 
   public function edit($id)

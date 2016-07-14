@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\Website;
-use App\Application;
+use App\Product;
 use App\Domain_name;
 use App\Company;
 use App\Server;
@@ -41,10 +41,10 @@ class WebsiteController extends Controller
       $domain_names = Domain_name::lists('name','id');
       $users = User::all()->lists('full_name', 'id');
       $servers = Server::lists('name','id');
-      $applications = Application::lists('name','id');
+      $products = Product::lists('name','id');
         $title = 'New Website';
         $backtitle = 'Websites';
-        return view('websites.create', compact('domain_names', 'users', 'servers', 'applications','title','backtitle'));
+        return view('websites.create', compact('domain_names', 'users', 'servers', 'products','title','backtitle'));
     }
 
      public function store(Request $request, Website $website)
@@ -66,13 +66,13 @@ class WebsiteController extends Controller
     {
       $website = Website::findOrFail($id);
       $domain_name = Domain_name::where('id', '=', $website->domain_name_id);
-      $application = Application::where('id', '=', $website->application_id);
+      $product = Product::where('id', '=', $website->product_id);
       $servers = $website->server;
       $users = $website->user;
       $companies = $users->company;
       $title = 'website Details - '.$website->name;
 
-      return view('websites.website', compact('title', 'website', 'domain_name', 'application','users','servers','companies','browsershot'));
+      return view('websites.show', compact('title', 'website', 'domain_name', 'product','users','servers','companies','browsershot'));
     }
 
      public function edit($id)
@@ -81,11 +81,11 @@ class WebsiteController extends Controller
        $domain_names = Domain_name::lists('name','id');
        $users = User::all()->lists('full_name', 'id');
        $servers = Server::lists('hostname','id');
-       $applications = Application::lists('name','id');
+       $products = Product::lists('name','id');
        $backtitle = 'Website Detail';
        $title = 'Website Edit';
       //  dd($website);
-       return view('websites/edit', compact('website', 'domain_names', 'users', 'servers', 'applications', 'title', 'backtitle'));
+       return view('websites/edit', compact('website', 'domain_names', 'users', 'servers', 'products', 'title', 'backtitle'));
      }
 
      public function update(Request $request, Website $website)
@@ -101,13 +101,13 @@ class WebsiteController extends Controller
      {
        $website = Website::where('name', '=', $name)->first();
        $domain_name = Domain_name::where('id', '=', $website->domain_name_id);
-       $application = Application::where('id', '=', $website->application_id);
+       $product = Product::where('id', '=', $website->product_id);
        $servers = $website->server;
        $users = $website->user;
        $companies = $users->company;
        $title = 'website Details - '.$website->name;
 
-       return view('websites.website', compact('title', 'website', 'domain_name', 'application','users','servers','companies','browsershot'));
+       return view('websites.website', compact('title', 'website', 'domain_name', 'product','users','servers','companies','browsershot'));
      }
 
      public function blog($websiteid, $year, $month, $day)

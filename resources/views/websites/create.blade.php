@@ -43,9 +43,9 @@
 						</div>
 				</div>
 				<div class="form-group">
-					<label for="application" class="col-sm-3 control-label">Application Name</label>
+					<label for="product" class="col-sm-3 control-label">Application Name</label>
 						<div class="col-sm-6">
-							{{ Form::select('application_id', $applications, null, ['class' => 'form-control']) }}
+							{{ Form::select('product_id', $products, null, ['class' => 'form-control']) }}
 						</div>
 				</div>
 				<div class="form-group">

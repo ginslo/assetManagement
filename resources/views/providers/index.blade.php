@@ -21,7 +21,7 @@
 				@foreach ($providers as $provider)
 			<tr>
 				<td class="servtable">{{ $provider->id }}</td>
-				<td class="servtable"><a href="/providers/provider/{{ $provider->id }}">{{ $provider->name }}</a></td>
+				<td class="servtable"><a href="{{ route('providers.provider.show', $provider->id) }}">{{ $provider->name }}</a></td>
 			</tr>
 				@endforeach
 		</table>

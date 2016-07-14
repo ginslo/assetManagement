@@ -48,7 +48,7 @@
 
 
 				<tr>
-					<th class="servtable">Registrar: </th><td class="servtable"><a href="/registrars/registrar_info/{{ $domain_name->registrar->id }}">{{ $domain_name->registrar->name }}</a></span></td>
+					<th class="servtable">Registrar: </th><td class="servtable"><a href="{{ route('registrars.registrar_info.show', $domain_name->registrar->id) }}">{{ $domain_name->registrar->name }}</a></span></td>
 				</tr>
 			</table>
 		</div>
@@ -66,11 +66,11 @@
 				</tr>
 				@foreach($websites as $website)
 					<tr>
-						<td class="servtable"><a href="/websites/my_website/{{ $website->id }}">{{ $website->name }}</a></td>
+						<td class="servtable"><a href="{{ route('websites.my_website.show', $website->id) }}">{{ $website->name }}</a></td>
 						<td class="servtable">{{ $website->subdomain }}</td>
 						<td class="servtable"><a target="_blank" href="http://{{ $website->subdomain }}.{{ $domain_name->name }}">{{ $website->subdomain }}.{{ $domain_name->name }}</a></td>
-						<td class="servtable"><a href="/servers/my_server/{{ $website->server->id }}">{{ $website->server->name }}</a></td>
-						<td class="servtable"><a href="/servers/my_server/{{ $website->server->id }}">{{ $website->server->hostname }}</a></td>
+						<td class="servtable"><a href="{{ route('servers.my_server.show', $website->server->id) }}">{{ $website->server->name }}</a></td>
+						<td class="servtable"><a href="{{ route('servers.my_server.show', $website->server->id) }}">{{ $website->server->hostname }}</a></td>
 					</tr>
 				@endforeach
 			</table>

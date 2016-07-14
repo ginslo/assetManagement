@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\Company;
-use App\Application;
+use App\Product;
 use App\Data_center;
 use App\Distribution;
-use App\Distribution_version;
+use App\Version;
 use App\Domain_name;
 use App\Provider;
 use App\Purpose;
@@ -34,7 +34,7 @@ class SearchController extends Controller
 
       $search = \Request::get('search');
 
-      $applications = Application::where('name','like','%'.$search.'%')
+      $products = Product::where('name','like','%'.$search.'%')
         ->orderBy('name','asc')
         ->get();
 
@@ -72,7 +72,7 @@ class SearchController extends Controller
         ->orderBy('name','asc')
         ->get();
 
-      return view('search.index', compact('title','applications','domain_names','distributions','providers','registrars','users','servers','websites','search'));
+      return view('search.index', compact('title','products','domain_names','distributions','providers','registrars','users','servers','websites','search'));
     }
 
 }

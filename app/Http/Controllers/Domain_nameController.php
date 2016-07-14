@@ -58,7 +58,7 @@ class Domain_nameController extends Controller
       $user = User::where('id', '=', 'user_id');
       $title = 'Domain Name: '.$domain_name->name;
 
-      return view('domain_names.domain_name', compact('title', 'domain_name', 'registrar', 'user','websites'));
+      return view('domain_names.show', compact('title', 'domain_name', 'registrar', 'user','websites'));
     }
 
      public function edit($id)

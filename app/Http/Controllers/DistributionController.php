@@ -49,10 +49,10 @@ class DistributionController extends Controller
     {
         $distribution = Distribution::findOrFail($id);
         $servers = $distribution->server;
-        $distribution_versions = $distribution->distribution_version;
+        $versions = $distribution->version;
         $title = 'Distribution: '.$distribution->name;
 
-        return view('distributions.distribution', compact('distribution_versions','servers','title', 'distribution'));
+        return view('distributions.show', compact('versions','servers','title', 'distribution'));
     }
 
     public function edit($id)

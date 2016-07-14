@@ -11,9 +11,11 @@ use App\Provider;
 use App\Data_center;
 use App\Purpose;
 use App\Distribution;
-use App\Distribution_version;
+use App\Version;
 use App\Website;
-use App\Application;
+use App\Product;
+use App\Period;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
@@ -39,12 +41,13 @@ class ServerController extends Controller
       $data_centers = Data_center::lists('name','id');
       $purposes = Purpose::lists('name','id');
       $distributions = Distribution::lists('name','id');
-      $distribution_versions = Distribution_version::lists('name','id');
+      $versions = Version::lists('name','id');
       $users = User::all()->lists('full_name', 'id');
+      $periods = Period::lists('name','id');
         $title = 'New Server';
         $backtitle = 'Servers';
         return view('servers.create', compact('providers','data_centers',
-        'purposes','distributions','distribution_versions','users','title','backtitle'));
+        'purposes','distributions','versions','users','title','backtitle','periods'));
     }
 
     public function store(Request $request, Server $server)
@@ -62,14 +65,15 @@ class ServerController extends Controller
       $data_center = Data_center::where('id', '=', $server->data_center_id);
       $purpose = Purpose::where('id', '=', $server->purpose_id);
       $distribution = Distribution::where('id', '=', $server->distribution_id);
-      $distribution_version = Distribution_version::where('id', '=', $server->distribution_version_id);
+      $version = Version::where('id', '=', $server->version_id);
       $websites = Server::find($id)->website;
+      $periods = $server->period;
 
       $serverstate = $server->state == 1 ? "Running" : "Stopped";
       $title = 'Server: '. $server->name;
 
-      return view('servers.server', compact('title', 'server', 'user', 'company', 'data_center',
-      'purpose', 'distribution', 'distribution_version', 'serverstate', 'websites'));
+      return view('servers.show', compact('title', 'server', 'user', 'company', 'data_center',
+      'purpose', 'distribution', 'version', 'serverstate', 'websites','periods'));
     }
 
     public function edit($id)
@@ -79,12 +83,13 @@ class ServerController extends Controller
       $data_centers = Data_center::lists('name','id');
       $purposes = Purpose::lists('name','id');
       $distributions = Distribution::lists('name','id');
-      $distribution_versions = Distribution_version::lists('name','id');
+      $versions = Version::lists('name','id');
       $users = User::all()->lists('full_name', 'id');
+      $periods = Period::lists('name','id');
       $backtitle = 'Server Detail';
       $title = 'Server Edit';
       return view('servers/edit', compact('server','providers','data_centers',
-      'purposes','distributions','distribution_versions','users','title', 'backtitle'));
+      'purposes','distributions','versions','users','title', 'backtitle','periods'));
     }
 
     public function update(Request $request, Server $server)

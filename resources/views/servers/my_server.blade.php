@@ -11,55 +11,72 @@
 			<h1>{{ $title }}</h1>
 			<table>
 				<tr>
-					<th class="servtable">Description:</th><td class="servtable">{{ $server->name }}</td>
+					<th class="servtable">Description:</th>
+					<td class="servtable">{{ $server->name }}</td>
 				</tr>
 				<tr>
-					<th class="servtable">Company:</th><td class="servtable"><a href="/companies/my_company/{{ $server->user->company->id }}">{{ $server->user->company->name }}</a></span></td>
+					<th class="servtable">Company:</th>
+					<td class="servtable"><a href="{{ route('companies.my_company.show', $server->user->company->id) }}">{{ $server->user->company->name }}</a></span></td>
 				</tr>
 				<tr>
-					<th class="servtable">Hostname:</th><td class="servtable">{{ $server->hostname }}</td>
+					<th class="servtable">Hostname:</th>
+					<td class="servtable">{{ $server->hostname }}</td>
 				</tr>
 				<tr>
-					<th class="servtable">IP Public:</th><td class="servtable">{{ $server->ip_public }}</td>
+					<th class="servtable">IP Public:</th>
+					<td class="servtable">{{ $server->ip_public }}</td>
 				</tr>
 				<tr>
-					<th class="servtable">IP Private:</th><td class="servtable">{{ $server->ip_private }}</td>
+					<th class="servtable">IP Private:</th>
+					<td class="servtable">{{ $server->ip_private }}</td>
 				</tr>
 				<tr>
-	        <th class="servtable">Purpose:</th><td class="servtable">{{ $server->purpose->name }}</span></td>
+	        <th class="servtable">Purpose:</th>
+					<td class="servtable">{{ $server->purpose->name }}</span></td>
 				</tr>
 				<tr>
-					<th class="servtable">Provider:</th><td class="servtable"><a href="/providers/provider_info/{{ $server->provider->id }}">{{ $server->provider->name }}</a></span></td>
+					<th class="servtable">Provider:</th>
+					<td class="servtable"><a href="{{ route('providers.provider_info.show', $server->provider->id) }}">{{ $server->provider->name }}</a></span></td>
 				</tr>
 				<tr>
-	        <th class="servtable">Data Center:</th><td class="servtable"><a href="/data_centers/data_center_info/{{ $server->data_center->id }}">{{ $server->data_center->name }}</a></span></td>
+	        <th class="servtable">Data Center:</th>
+					<td class="servtable"><a href="{{ route('data_centers.data_center_info.show', $server->data_center->id) }}">{{ $server->data_center->name }}</a></span></td>
 				</tr>
 				<tr>
-					<th class="servtable">Instance ID:</th><td class="servtable">{{ $server->instance_id }}</td>
+					<th class="servtable">Instance ID:</th>
+					<td class="servtable">{{ $server->instance_id }}</td>
 				</tr>
 				<tr>
-					<th class="servtable">Cores:</th><td class="servtable">{{ $server->cores }}	</td>
+					<th class="servtable">Cores:</th>
+					<td class="servtable">{{ $server->cores }}	</td>
 				</tr>
 				<tr>
-					<th class="servtable">Size:</th><td class="servtable">{{ $server->size }}	</td>
+					<th class="servtable">Size:</th>
+					<td class="servtable">{{ $server->size }}	</td>
 				</tr>
 				<tr>
-					<th class="servtable">Memory:</th><td class="servtable">{{ $server->memory }}	</td>
+					<th class="servtable">Memory:</th>
+					<td class="servtable">{{ $server->memory }}	</td>
 				</tr>
 				<tr>
-	        <th class="servtable">Distro| Version:</th><td class="servtable">{{ $server->distribution->name }} | {{ $server->distribution_version->name }}</td>
+	        <th class="servtable">Distro| Version:</th>
+					<td class="servtable">{{ $server->distribution->name }} | {{ $server->version->name }}</td>
 				</tr>
 				<tr>
-	        <th class="servtable">Kernel:</th><td class="servtable">{{ $server->kernel }}	</td>
+	        <th class="servtable">Kernel:</th>
+					<td class="servtable">{{ $server->kernel }}	</td>
 				</tr>
 				<tr>
-	        <th class="servtable">Repo Update:</th><td class="servtable">{{ $server->repo_update }}</span></td>
+	        <th class="servtable">Repo Update:</th>
+					<td class="servtable">{{ $server->repo_update }}</span></td>
 				</tr>
 				<tr>
-					<th class="servtable">State:</th><td class="servtable">{{ $serverstate }}	</td>
+					<th class="servtable">State:</th>
+					<td class="servtable">{{ $serverstate }}	</td>
 				</tr>
 				<tr>
-					<th class="servtable">Monitor:</th><td class="servtable"><a target="_blank" href="{{ env("MONITOR_URL") }}{{ $server->hostname }}">Nagios</a>	</td>
+					<th class="servtable">Monitor:</th>
+					<td class="servtable"><a target="_blank" href="{{ env("MONITOR_URL") }}{{ $server->hostname }}">Nagios</a>	</td>
 				</tr>
 			</table>
     </div>
@@ -75,7 +92,7 @@
 				@foreach($websites as $website)
 					@if($website->user_id == Auth::user()->id)
 						<tr>
-							<td class="servtable"><a href="/websites/my_website/{{ $website->id }}">{{ $website->name }}</a></td>
+							<td class="servtable"><a href="{{ route('websites.my_website.show', $website->id) }}">{{ $website->name }}</a></td>
 							<td class="servtable"><a target="_blank" href="http://{{ $website->subdomain }}.{{ $website->domain_name->name }}">{{ $website->subdomain }}.{{ $website->domain_name->name }}</a></td>
 						</tr>
 					@endif

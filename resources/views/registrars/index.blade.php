@@ -21,7 +21,7 @@
 				@foreach ($registrars as $registrar)
 			<tr>
 				<td class="servtable">{{ $registrar->id }}</td>
-				<td class="servtable"><a href="/registrars/registrar/{{ $registrar->id }}">{{ $registrar->name }}</a></td>
+				<td class="servtable"><a href="{{ route('registrars.registrar.show', $registrar->id) }}">{{ $registrar->name }}</a></td>
 			</tr>
 				@endforeach
 		</table>
